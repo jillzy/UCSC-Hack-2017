@@ -1,5 +1,9 @@
 # -*- coding: utf-8 -*-
 
+response.menu = [
+    (T('Home'), request.controller == 'default' and request.function == 'index', URL('default', 'index'),
+    T('Login'), URL('default', 'user'))]
+
 #########################################################################
 ## Changes the menu active item
 #########################################################################

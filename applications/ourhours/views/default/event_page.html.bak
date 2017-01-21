@@ -1,0 +1,16 @@
+{{extend 'layout.html'}}
+<a href = "{{=URL('ecreate')}}"><button>
+    Create Event
+    </button>
+</a>
+<br>
+{{if len(event):}}
+{{for event in event:}}
+    <tr>
+        <a href>
+            <td> {{=event.event_name}}</td>
+        </a>
+        <br>
+    </tr>
+{{pass}}
+{{pass}}

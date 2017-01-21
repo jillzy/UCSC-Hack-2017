@@ -1,12 +1,12 @@
 {{extend 'layout.html'}}
  <div class="row main-navigation" role="navigation">
     <ul class="hasqsg" id="mainNav">
-        <a href="http://127.0.0.1:8000/ourhours/default/user/login?_next=/ourhours/default/index">
-            <button>Log In</button>
-        </a>
-        <a href="{{=URL('index')}}">
-            <button>Home</button>
-        </a>
+        <button>
+            <a href="http://127.0.0.1:8000/ourhours/default/user/login?_next=/ourhours/default/index">Log In</a>
+        </button>
+        <button>
+            <a href="{{=URL('index')}}">Home</a>
+        </button>
     </ul>
 </div>
 <a href = "{{=URL('create')}}"><button>
