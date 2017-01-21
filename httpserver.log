@@ -8792,3 +8792,9 @@
 127.0.0.1, 2017-01-21 14:51:58, GET, /ourhours/default/index, HTTP/1.1, 200, 0.192000
 127.0.0.1, 2017-01-21 14:56:54, GET, /ourhours/default/event_page/15, HTTP/1.1, 200, 1.534000
 127.0.0.1, 2017-01-21 14:56:55, GET, /ourhours/static/js/main.js, HTTP/1.1, 304, 0.413000
+127.0.0.1, 2017-01-21 15:02:02, GET, /ourhours/default/ecreate, HTTP/1.1, 200, 0.457000
+127.0.0.1, 2017-01-21 15:02:04, GET, /ourhours/default/index, HTTP/1.1, 200, 0.202000
+127.0.0.1, 2017-01-21 15:06:48, GET, /ourhours/default/event_page/15, HTTP/1.1, 200, 0.246000
+127.0.0.1, 2017-01-21 15:08:04, GET, /ourhours/default/ecreate, HTTP/1.1, 200, 0.266000
+127.0.0.1, 2017-01-21 15:17:54, GET, /ourhours/default/index, HTTP/1.1, 200, 0.227000
+127.0.0.1, 2017-01-21 15:17:54, GET, /ourhours/static/js/main.js, HTTP/1.1, 304, 0.012000
