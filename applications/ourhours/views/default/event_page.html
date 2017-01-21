@@ -1,4 +1,7 @@
 {{extend 'layout.html'}}
+<h2 align = "middle">
+Your Events
+</h2>
 <a href = "{{=URL('ecreate')}}"><button>
     Create Event
     </button>
@@ -13,4 +16,6 @@
         <br>
     </tr>
 {{pass}}
+{{else:}}
+	There are no events
 {{pass}}

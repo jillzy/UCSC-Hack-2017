@@ -4,6 +4,9 @@
 ## Changes the menu active item
 #########################################################################
 
+response.menu = [
+    (T('Home'), False, URL('default', 'index'))
+]
 
 def toggle_menuclass(cssclass='pressed', menuid='headermenu'):
     """This function changes the menu class to put pressed appearance"""
