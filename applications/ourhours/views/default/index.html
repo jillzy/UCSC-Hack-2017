@@ -1,4 +1,44 @@
 {{extend 'layout.html'}}
+ <div class="row main-navigation" role="navigation" align="right">
+        <div id="firechat-wrapper">
+              <button onclick="login('google');">Login with Google</button>
+        </div>        
+</div>
+
+<h1> OurHour </h1>
+<style>
+    .boxed {
+        border: 1px solid black;
+        padding: 3px
+        width: 1050px;
+    }
+</style>
+
+<a href = "{{=URL('create')}}"><button>
+    Create Group
+    </button>
+</a>
+<br>
+{{if len(groups):}}
+<table class = "table" id = "posts"><input type="hidden" id="id" name="id" value="" />
+    {{for groups in groups:}}
+        <tr class = "boxed">
+            {{if groups.optional_group_photo:}}
+                <td><img width="40px" src="{{=URL('download', args=groups.group_photo_optional)}}" /></td>
+            {{else:}}
+                <td><img width="40px" src="http://www.drodd.com/images15/question-mark12.png" /></td>
+            {{pass}}
+            <td><a href = "{{=URL('event_page', args=groups.id)}}">
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;{{=groups.group_name}}
+            </a></td>
+            <td> <br>&nbsp;&nbsp;&nbsp;&nbsp;{{=groups.group_description}} </td>
+            <br>
+        </tr>
+    {{pass}}
+    
+</table>
+{{pass}}
+
 
 HI :)
 

@@ -1,0 +1,700 @@
+(dp1
+S'output'
+p2
+S"<class 'sqlite3.OperationalError'> no such column: groups.id"
+p3
+sS'layer'
+p4
+S'C:\\Users\\Wesly\\Desktop\\UCSC-Hack-2017\\applications\\ourhours\\controllers/default.py'
+p5
+sS'code'
+p6
+S"from gluon.tools import Mail\nimport imaplib\nimport email\nfrom email.header import decode_header\n\nimport random\nimport string\ndef index():\n    groups = db(db.groups).select(db.groups.ALL)\n    return locals()\n\n# @auth.requires_login()\ndef create():\n    form = SQLFORM(db.groups, deletable=True).process()\n    if form.accepted:\n        \n        redirect(URL('index'))\n        response.flash = 'Successful'\n    return locals()\n\n# @auth.requires_login()\ndef ecreate():\n    form = SQLFORM(db.event, deletable=True).process()\n    if form.accepted:\n        response.flash = 'Success'\n        redirect(URL('index'))\n    return locals()\n\n# @auth.requires_login()\ndef event_page():\n    #currently faulty, returns all events\n    g = db.groups(request.args(0,cast=int)) or redirect(URL('index'))\n    db.event.event_id.default = g.id\n    db.event.event_code.default = g.group_code\n    event = db(db.event.event_id == g.id).select()\n    # event = db(db.event).select(db.event.ALL)\n    return locals()\n\ndef user():\n    return dict(form=auth())\n\ndef download():\n    return response.download(request, db)\n\ndef picture():\n    return response.view(request, db)\nresponse._vars=response._caller(ecreate)\n"
+p7
+sS'snapshot'
+p8
+(dp9
+S'exception'
+p10
+(dp11
+S'__module__'
+p12
+S"'sqlite3'"
+p13
+sS'__getslice__'
+p14
+S"<method-wrapper '__getslice__' of OperationalError object>"
+p15
+sS'__str__'
+p16
+S"<method-wrapper '__str__' of OperationalError object>"
+p17
+sS'__reduce__'
+p18
+S'<built-in method __reduce__ of OperationalError object>'
+p19
+sS'__dict__'
+p20
+S'{}'
+p21
+sS'__sizeof__'
+p22
+S'<built-in method __sizeof__ of OperationalError object>'
+p23
+sS'__weakref__'
+p24
+S'None'
+p25
+sS'__init__'
+p26
+S"<method-wrapper '__init__' of OperationalError object>"
+p27
+sS'__setattr__'
+p28
+S"<method-wrapper '__setattr__' of OperationalError object>"
+p29
+sS'__reduce_ex__'
+p30
+S'<built-in method __reduce_ex__ of OperationalError object>'
+p31
+sS'__new__'
+p32
+S'<built-in method __new__ of type object>'
+p33
+sS'__format__'
+p34
+S'<built-in method __format__ of OperationalError object>'
+p35
+sS'__class__'
+p36
+S"<class 'sqlite3.OperationalError'>"
+p37
+sS'__doc__'
+p38
+S'None'
+p39
+sS'__getitem__'
+p40
+S"<method-wrapper '__getitem__' of OperationalError object>"
+p41
+sS'__setstate__'
+p42
+S'<built-in method __setstate__ of OperationalError object>'
+p43
+sS'__getattribute__'
+p44
+S"<method-wrapper '__getattribute__' of OperationalError object>"
+p45
+sS'args'
+p46
+S"('no such column: groups.id',)"
+p47
+sS'__subclasshook__'
+p48
+S'<built-in method __subclasshook__ of type object>'
+p49
+sS'__unicode__'
+p50
+S'<built-in method __unicode__ of OperationalError object>'
+p51
+sS'__delattr__'
+p52
+S"<method-wrapper '__delattr__' of OperationalError object>"
+p53
+sS'__repr__'
+p54
+S"<method-wrapper '__repr__' of OperationalError object>"
+p55
+sS'__hash__'
+p56
+S"<method-wrapper '__hash__' of OperationalError object>"
+p57
+ssS'evalue'
+p58
+S'no such column: groups.id'
+p59
+sS'request'
+p60
+cgluon.html
+XML_unpickle
+p61
+(S'sv\x95\x00\x00<div><table><tr><td style="font-weight:bold;vertical-align:top;">ajax</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">application</td><td style="vertical-align:top;">:</td><td><div>ourhours</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">args</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cid</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">client</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">controller</td><td style="vertical-align:top;">:</td><td><div>default</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cookies</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">resolution</td><td style="vertical-align:top;">:</td><td><div>1349<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_data_ourhours</td><td style="vertical-align:top;">:</td><td><div>a7fef0079286308f4ed72322248e809e:g7S-BrpJIAONiJOWWPPD8sShCEnl7fb6R2yVZltDNwm8EKu0mZR341nLuqwxkL0D6-Qjys_4XX7K5X-RPCMcQ7N88P4FhUsbDiuotnVmt4sfxBD9jsmYPOPreBsnhb7RCzYgZxnsDllzGikWbAHGCr-uUZp31nUxpDVWgzejcz5FGhBQWtyHprlRfHkS_9k4yx4lBjeP_OLQyrOvQYlsg6oyyAVaaNX3aHPfOqf44axWPncuZQ2JjxoSCn6CPFiLjTCFjPJytFA-bcBDkKd-r7v1CKRZb3bjulq3i2u7y0uNh9NfAy7BIlpdzq7i6m1m-V_WwnY6kfFu_l3MhHiRKqObDz7EvhPrg9zpdLcYw8ltolIO9wbCMuCVxqEagnPTud1by6G12ANXs0vfwqYXBSUOGO50AmQbMJpRJ4FZEZLwKJKnd0Tv0GtV0E1lPkoxmr-zCECMLU6UMNiWatBw0EtCO3PjPuDQD0mcVWuZmdWDbHI_IEwy6C79BWLlX3NiB91MQZGxqivV81zap2LUx2fXrtEJBIX3MpJO74YM1_vPEuaHH0e2cIRyhwlALheeCkZJtyqx6z-W4xHJKVAqM5gCy7YAA92Ib18H4KDx0EWNHeijPo-r95EMsFSBJES7RtcYOjK3JZ-w1zI_82W1b23nRSRis5lMdjayCdf3850iPL-P4bl2wKQ0OCTSK881yBWnlArWUEXmHAqhEv_Frgxi2KklAMJ8RVVPaLSBJvZq-hAvJU4Z6MYfaG_1dr5pNbSiP9vxhbtUBXd74LaJX1APXGoL4mKf7UMN6kS08uSSWRVyGidOIYIHaJ9snFIuXZ7hvpZKbWoJxuUNuLfACrtIEkR3WMgnI3Rf5xIMdh7vXF8RrNvoLj_RLnWEUzfZQbtTbKfH7eZiJg7Z2QGNj8kXslGHDU_P3eiWCItSeyIewF6yOLI33L8SL-M9Vnfr5Z-3mINn6uK1BycoqRQuyQDyAecYEQHWbmSvCjkpsjyQhQLeMaCDpzFzykS0uqrjKkKcGTGnx5T6iq7C8ZxR5kV9fxYMx5NgjtHCh8RanHUMs9Ij6fRfGlFefWQ-J76URFV2hWocTPGThwx00vs8mFYhtoUyPyYNNxGKtXF-z6x9GnJaH7Ad9hdLvIZPsPC3hbYbtaFtCWI5UNYklICCPxX3eeFs2WdMVgOjB58AOnZIs26b-7lZiMM97qm_1I4nITDvrrEolABFFjGtzRUHi6AaVHGu5yf6GoLTWrq9WZVh6LtzWkV8h4j1xf-DB1by9TstOUn1FkURv4I3Bbd2whIP4cGHdU4a99-0PXQQ8xz-y1zdKc5D25ekqyAA_7ossfmtulVDVBx6JORJKUGKqKGQ16Ql7Q9G7fRMzf7pj2Xql8nDfK66saJN4iRvXVeVLcsDq2fSSgqV7_i2QPJmWi_d1_6rq7nW6ltMbEreKTGJFCE6lm2XaRsWeomtfl2PomjK3WEOj9ECcvQDdxEwBDVNgY7_fZSoXWKdTWSqtWrn1Ci4FymvOEMWhwkFctKKCdHXGTlu20AnXg-F01r09C-hmHDrZagT8lZal9wVL1kY3tkFbDgBM-W_HTwSVAwWUMumRTG2Dzx3Mp-Fx1NRAYAq9C2XEXqBO43VIlSbyLMHciJ8qjIpVIgs5LHvdh-FwdogB0lpd1_wTWlQ_Gw31ixm7widDGDNidmKu2rs5mWqpr_yErdymriYNBS4qJ5vXqqVygLZ0duqylPn1wH1GP-bs2UTuIPAQQcT4qkaLQY3uNoVMT2TVlgb86Lvbu1ROudgKhCuRjxcvEhPXQfPfYpJPk9Zh0fgB5TZ1GCC01ZrjyeKnirPY5y45Der_kU2<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_admin</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-5e4d5587-8e46-4ab9-bda4-cde90ee24cff<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_hackathon</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-e9d19e57-2c82-4246-95e2-3afb87897355<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_hw</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-23223d0c-fdad-4421-b0fa-bfb22452a98b<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_layouttest</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-9dd550cb-7d25-4599-add6-bbf406414416<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_ourhours</td><td style="vertical-align:top;">:</td><td><div>True<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_welcome</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-27aab160-fe24-4282-a33a-46f674a52c7a<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">env</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">CONTENT_LENGTH</td><td style="vertical-align:top;">:</td><td><div>995</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">CONTENT_TYPE</td><td style="vertical-align:top;">:</td><td><div>multipart/form-data; boundary=----WebKitFormBoundaryam1i2pvl1Hzj5caQ</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_ACCEPT</td><td style="vertical-align:top;">:</td><td><div>text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_ACCEPT_ENCODING</td><td style="vertical-align:top;">:</td><td><div>gzip, deflate, br</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_ACCEPT_LANGUAGE</td><td style="vertical-align:top;">:</td><td><div>en-US,en;q=0.8</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_CACHE_CONTROL</td><td style="vertical-align:top;">:</td><td><div>max-age=0</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_CONNECTION</td><td style="vertical-align:top;">:</td><td><div>keep-alive</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_CONTENT_LENGTH</td><td style="vertical-align:top;">:</td><td><div>995</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_CONTENT_TYPE</td><td style="vertical-align:top;">:</td><td><div>multipart/form-data; boundary=----WebKitFormBoundaryam1i2pvl1Hzj5caQ</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_COOKIE</td><td style="vertical-align:top;">:</td><td><div>session_id_layouttest=127.0.0.1-9dd550cb-7d25-4599-add6-bbf406414416; resolution=1349; session_id_hackathon=127.0.0.1-e9d19e57-2c82-4246-95e2-3afb87897355; session_id_hw=127.0.0.1-23223d0c-fdad-4421-b0fa-bfb22452a98b; session_id_welcome=127.0.0.1-27aab160-fe24-4282-a33a-46f674a52c7a; session_id_admin=127.0.0.1-5e4d5587-8e46-4ab9-bda4-cde90ee24cff; session_data_ourhours=&quot;a7fef0079286308f4ed72322248e809e:g7S-BrpJIAONiJOWWPPD8sShCEnl7fb6R2yVZltDNwm8EKu0mZR341nLuqwxkL0D6-Qjys_4XX7K5X-RPCMcQ7N88P4FhUsbDiuotnVmt4sfxBD9jsmYPOPreBsnhb7RCzYgZxnsDllzGikWbAHGCr-uUZp31nUxpDVWgzejcz5FGhBQWtyHprlRfHkS_9k4yx4lBjeP_OLQyrOvQYlsg6oyyAVaaNX3aHPfOqf44axWPncuZQ2JjxoSCn6CPFiLjTCFjPJytFA-bcBDkKd-r7v1CKRZb3bjulq3i2u7y0uNh9NfAy7BIlpdzq7i6m1m-V_WwnY6kfFu_l3MhHiRKqObDz7EvhPrg9zpdLcYw8ltolIO9wbCMuCVxqEagnPTud1by6G12ANXs0vfwqYXBSUOGO50AmQbMJpRJ4FZEZLwKJKnd0Tv0GtV0E1lPkoxmr-zCECMLU6UMNiWatBw0EtCO3PjPuDQD0mcVWuZmdWDbHI_IEwy6C79BWLlX3NiB91MQZGxqivV81zap2LUx2fXrtEJBIX3MpJO74YM1_vPEuaHH0e2cIRyhwlALheeCkZJtyqx6z-W4xHJKVAqM5gCy7YAA92Ib18H4KDx0EWNHeijPo-r95EMsFSBJES7RtcYOjK3JZ-w1zI_82W1b23nRSRis5lMdjayCdf3850iPL-P4bl2wKQ0OCTSK881yBWnlArWUEXmHAqhEv_Frgxi2KklAMJ8RVVPaLSBJvZq-hAvJU4Z6MYfaG_1dr5pNbSiP9vxhbtUBXd74LaJX1APXGoL4mKf7UMN6kS08uSSWRVyGidOIYIHaJ9snFIuXZ7hvpZKbWoJxuUNuLfACrtIEkR3WMgnI3Rf5xIMdh7vXF8RrNvoLj_RLnWEUzfZQbtTbKfH7eZiJg7Z2QGNj8kXslGHDU_P3eiWCItSeyIewF6yOLI33L8SL-M9Vnfr5Z-3mINn6uK1BycoqRQuyQDyAecYEQHWbmSvCjkpsjyQhQLeMaCDpzFzykS0uqrjKkKcGTGnx5T6iq7C8ZxR5kV9fxYMx5NgjtHCh8RanHUMs9Ij6fRfGlFefWQ-J76URFV2hWocTPGThwx00vs8mFYhtoUyPyYNNxGKtXF-z6x9GnJaH7Ad9hdLvIZPsPC3hbYbtaFtCWI5UNYklICCPxX3eeFs2WdMVgOjB58AOnZIs26b-7lZiMM97qm_1I4nITDvrrEolABFFjGtzRUHi6AaVHGu5yf6GoLTWrq9WZVh6LtzWkV8h4j1xf-DB1by9TstOUn1FkURv4I3Bbd2whIP4cGHdU4a99-0PXQQ8xz-y1zdKc5D25ekqyAA_7ossfmtulVDVBx6JORJKUGKqKGQ16Ql7Q9G7fRMzf7pj2Xql8nDfK66saJN4iRvXVeVLcsDq2fSSgqV7_i2QPJmWi_d1_6rq7nW6ltMbEreKTGJFCE6lm2XaRsWeomtfl2PomjK3WEOj9ECcvQDdxEwBDVNgY7_fZSoXWKdTWSqtWrn1Ci4FymvOEMWhwkFctKKCdHXGTlu20AnXg-F01r09C-hmHDrZagT8lZal9wVL1kY3tkFbDgBM-W_HTwSVAwWUMumRTG2Dzx3Mp-Fx1NRAYAq9C2XEXqBO43VIlSbyLMHciJ8qjIpVIgs5LHvdh-FwdogB0lpd1_wTWlQ_Gw31ixm7widDGDNidmKu2rs5mWqpr_yErdymriYNBS4qJ5vXqqVygLZ0duqylPn1wH1GP-bs2UTuIPAQQcT4qkaLQY3uNoVMT2TVlgb86Lvbu1ROudgKhCuRjxcvEhPXQfPfYpJPk9Zh0fgB5TZ1GCC01ZrjyeKnirPY5y45Der_kU2&quot;; session_id_ourhours=True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_HOST</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1:8000</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_ORIGIN</td><td style="vertical-align:top;">:</td><td><div>http://127.0.0.1:8000</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_REFERER</td><td style="vertical-align:top;">:</td><td><div>http://127.0.0.1:8000/ourhours/default/ecreate</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_UPGRADE_INSECURE_REQUESTS</td><td style="vertical-align:top;">:</td><td><div>1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_USER_AGENT</td><td style="vertical-align:top;">:</td><td><div>Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">PATH_INFO</td><td style="vertical-align:top;">:</td><td><div>/ourhours/default/ecreate</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">QUERY_STRING</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">REMOTE_ADDR</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">REMOTE_PORT</td><td style="vertical-align:top;">:</td><td><div>54508</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">REQUEST_METHOD</td><td style="vertical-align:top;">:</td><td><div>POST</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SCRIPT_NAME</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SERVER_NAME</td><td style="vertical-align:top;">:</td><td><div>DESKTOP-GDD7DCK</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SERVER_PORT</td><td style="vertical-align:top;">:</td><td><div>8000</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SERVER_PROTOCOL</td><td style="vertical-align:top;">:</td><td><div>HTTP/1.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SERVER_SOFTWARE</td><td style="vertical-align:top;">:</td><td><div>Rocket 1.2.6</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">app_folders</td><td style="vertical-align:top;">:</td><td><div>set([&#x27;C:\\\\Users\\\\Wesly\\\\Desktop\\\\UCSC-Hack-2017\\\\applications\\\\welcome\\\\&#x27;, &#x27;C:\\\\Users\\\\Wesly\\\\Desktop\\\\UCSC-Hack-2017\\\\applications\\\\examples\\\\&#x27;, &#x27;C:\\\\Users\\\\Wesly\\\\Desktop\\\\UCSC-Hack-2017\\\\applications\\\\ourhours\\\\&#x27;, &#x27;C:\\\\Users\\\\Wesly\\\\Desktop\\\\UCSC-Hack-2017\\\\applications\\\\admin\\\\&#x27;])</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">applications_parent</td><td style="vertical-align:top;">:</td><td><div>C:\\Users\\Wesly\\Desktop\\UCSC-Hack-2017</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cmd_args</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cmd_options</td><td style="vertical-align:top;">:</td><td><div>&lt;Values at 0x2ddaeb8: {&#x27;verbose&#x27;: False, &#x27;ip&#x27;: &#x27;127.0.0.1&#x27;, &#x27;debuglevel&#x27;: 30, &#x27;with_scheduler&#x27;: False, &#x27;shutdown_timeout&#x27;: 5, &#x27;taskbar&#x27;: False, &#x27;with_coverage&#x27;: False, &#x27;pid_filename&#x27;: &#x27;httpserver.pid&#x27;, &#x27;maxthreads&#x27;: None, &#x27;softcron&#x27;: False, &#x27;server_name&#x27;: &#x27;DESKTOP-GDD7DCK&#x27;, &#x27;bpython&#x27;: False, &#x27;nogui&#x27;: False, &#x27;port&#x27;: 8000, &#x27;print_errors&#x27;: False, &#x27;extcron&#x27;: False, &#x27;runcron&#x27;: False, &#x27;run_system_tests&#x27;: False, &#x27;test&#x27;: None, &#x27;folder&#x27;: &#x27;C:\\\\Users\\\\Wesly\\\\Desktop\\\\UCSC-Hack-2017&#x27;, &#x27;config&#x27;: &#x27;&#x27;, &#x27;minthreads&#x27;: None, &#x27;shell&#x27;: None, &#x27;run&#x27;: &#x27;&#x27;, &#x27;log_filename&#x27;: &#x27;httpserver.log&#x27;, &#x27;profiler_dir&#x27;: None, &#x27;args&#x27;: [&#x27;&#x27;], &#x27;socket_timeout&#x27;: 5, &#x27;ssl_ca_certificate&#x27;: None, &#x27;scheduler&#x27;: None, &#x27;interfaces&#x27;: None, &#x27;ssl_private_key&#x27;: &#x27;&#x27;, &#x27;gae&#x27;: None, &#x27;password&#x27;: &#x27;******&#x27;, &#x27;request_queue_size&#x27;: 5, &#x27;ssl_certificate&#x27;: &#x27;&#x27;, &#x27;cronjob&#x27;: False, &#x27;numthreads&#x27;: None, &#x27;quiet&#x27;: False, &#x27;import_models&#x27;: False, &#x27;timeout&#x27;: 10, &#x27;plain&#x27;: False, &#x27;nobanner&#x27;: False}&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">content_length</td><td style="vertical-align:top;">:</td><td><div>995</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">content_type</td><td style="vertical-align:top;">:</td><td><div>multipart/form-data; boundary=----WebKitFormBoundaryam1i2pvl1Hzj5caQ</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">db_sessions</td><td style="vertical-align:top;">:</td><td><div>set([])</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">debugging</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">gluon_parent</td><td style="vertical-align:top;">:</td><td><div>C:\\Users\\Wesly\\Desktop\\UCSC-Hack-2017</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_accept</td><td style="vertical-align:top;">:</td><td><div>text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_accept_encoding</td><td style="vertical-align:top;">:</td><td><div>gzip, deflate, br</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_accept_language</td><td style="vertical-align:top;">:</td><td><div>en-US,en;q=0.8</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_cache_control</td><td style="vertical-align:top;">:</td><td><div>max-age=0</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_connection</td><td style="vertical-align:top;">:</td><td><div>keep-alive</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_content_length</td><td style="vertical-align:top;">:</td><td><div>995</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_content_type</td><td style="vertical-align:top;">:</td><td><div>multipart/form-data; boundary=----WebKitFormBoundaryam1i2pvl1Hzj5caQ</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_cookie</td><td style="vertical-align:top;">:</td><td><div>session_id_layouttest=127.0.0.1-9dd550cb-7d25-4599-add6-bbf406414416; resolution=1349; session_id_hackathon=127.0.0.1-e9d19e57-2c82-4246-95e2-3afb87897355; session_id_hw=127.0.0.1-23223d0c-fdad-4421-b0fa-bfb22452a98b; session_id_welcome=127.0.0.1-27aab160-fe24-4282-a33a-46f674a52c7a; session_id_admin=127.0.0.1-5e4d5587-8e46-4ab9-bda4-cde90ee24cff; session_data_ourhours=&quot;a7fef0079286308f4ed72322248e809e:g7S-BrpJIAONiJOWWPPD8sShCEnl7fb6R2yVZltDNwm8EKu0mZR341nLuqwxkL0D6-Qjys_4XX7K5X-RPCMcQ7N88P4FhUsbDiuotnVmt4sfxBD9jsmYPOPreBsnhb7RCzYgZxnsDllzGikWbAHGCr-uUZp31nUxpDVWgzejcz5FGhBQWtyHprlRfHkS_9k4yx4lBjeP_OLQyrOvQYlsg6oyyAVaaNX3aHPfOqf44axWPncuZQ2JjxoSCn6CPFiLjTCFjPJytFA-bcBDkKd-r7v1CKRZb3bjulq3i2u7y0uNh9NfAy7BIlpdzq7i6m1m-V_WwnY6kfFu_l3MhHiRKqObDz7EvhPrg9zpdLcYw8ltolIO9wbCMuCVxqEagnPTud1by6G12ANXs0vfwqYXBSUOGO50AmQbMJpRJ4FZEZLwKJKnd0Tv0GtV0E1lPkoxmr-zCECMLU6UMNiWatBw0EtCO3PjPuDQD0mcVWuZmdWDbHI_IEwy6C79BWLlX3NiB91MQZGxqivV81zap2LUx2fXrtEJBIX3MpJO74YM1_vPEuaHH0e2cIRyhwlALheeCkZJtyqx6z-W4xHJKVAqM5gCy7YAA92Ib18H4KDx0EWNHeijPo-r95EMsFSBJES7RtcYOjK3JZ-w1zI_82W1b23nRSRis5lMdjayCdf3850iPL-P4bl2wKQ0OCTSK881yBWnlArWUEXmHAqhEv_Frgxi2KklAMJ8RVVPaLSBJvZq-hAvJU4Z6MYfaG_1dr5pNbSiP9vxhbtUBXd74LaJX1APXGoL4mKf7UMN6kS08uSSWRVyGidOIYIHaJ9snFIuXZ7hvpZKbWoJxuUNuLfACrtIEkR3WMgnI3Rf5xIMdh7vXF8RrNvoLj_RLnWEUzfZQbtTbKfH7eZiJg7Z2QGNj8kXslGHDU_P3eiWCItSeyIewF6yOLI33L8SL-M9Vnfr5Z-3mINn6uK1BycoqRQuyQDyAecYEQHWbmSvCjkpsjyQhQLeMaCDpzFzykS0uqrjKkKcGTGnx5T6iq7C8ZxR5kV9fxYMx5NgjtHCh8RanHUMs9Ij6fRfGlFefWQ-J76URFV2hWocTPGThwx00vs8mFYhtoUyPyYNNxGKtXF-z6x9GnJaH7Ad9hdLvIZPsPC3hbYbtaFtCWI5UNYklICCPxX3eeFs2WdMVgOjB58AOnZIs26b-7lZiMM97qm_1I4nITDvrrEolABFFjGtzRUHi6AaVHGu5yf6GoLTWrq9WZVh6LtzWkV8h4j1xf-DB1by9TstOUn1FkURv4I3Bbd2whIP4cGHdU4a99-0PXQQ8xz-y1zdKc5D25ekqyAA_7ossfmtulVDVBx6JORJKUGKqKGQ16Ql7Q9G7fRMzf7pj2Xql8nDfK66saJN4iRvXVeVLcsDq2fSSgqV7_i2QPJmWi_d1_6rq7nW6ltMbEreKTGJFCE6lm2XaRsWeomtfl2PomjK3WEOj9ECcvQDdxEwBDVNgY7_fZSoXWKdTWSqtWrn1Ci4FymvOEMWhwkFctKKCdHXGTlu20AnXg-F01r09C-hmHDrZagT8lZal9wVL1kY3tkFbDgBM-W_HTwSVAwWUMumRTG2Dzx3Mp-Fx1NRAYAq9C2XEXqBO43VIlSbyLMHciJ8qjIpVIgs5LHvdh-FwdogB0lpd1_wTWlQ_Gw31ixm7widDGDNidmKu2rs5mWqpr_yErdymriYNBS4qJ5vXqqVygLZ0duqylPn1wH1GP-bs2UTuIPAQQcT4qkaLQY3uNoVMT2TVlgb86Lvbu1ROudgKhCuRjxcvEhPXQfPfYpJPk9Zh0fgB5TZ1GCC01ZrjyeKnirPY5y45Der_kU2&quot;; session_id_ourhours=True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_host</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1:8000</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_origin</td><td style="vertical-align:top;">:</td><td><div>http://127.0.0.1:8000</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_referer</td><td style="vertical-align:top;">:</td><td><div>http://127.0.0.1:8000/ourhours/default/ecreate</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_upgrade_insecure_requests</td><td style="vertical-align:top;">:</td><td><div>1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_user_agent</td><td style="vertical-align:top;">:</td><td><div>Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_jython</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_pypy</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_source</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">local_hosts</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>fe80::81f2:e7ae:7efe:f1e7%23</div></td></tr><tr><td><div>DESKTOP-GDD7DCK</div></td></tr><tr><td><div>::ffff:127.0.0.1</div></td></tr><tr><td><div>::1</div></td></tr><tr><td><div>fe80::5efe:192.168.1.135%21</div></td></tr><tr><td><div>192.168.1.135</div></td></tr><tr><td><div>fe80::e941:c1cf:aca3:e27d%22</div></td></tr><tr><td><div>127.0.0.1</div></td></tr><tr><td><div>192.168.56.1</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path_info</td><td style="vertical-align:top;">:</td><td><div>/ourhours/default/ecreate</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">query_string</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">remote_addr</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">remote_port</td><td style="vertical-align:top;">:</td><td><div>54508</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">request_method</td><td style="vertical-align:top;">:</td><td><div>POST</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">request_uri</td><td style="vertical-align:top;">:</td><td><div>/ourhours/default/ecreate</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">script_name</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">server_name</td><td style="vertical-align:top;">:</td><td><div>DESKTOP-GDD7DCK</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">server_port</td><td style="vertical-align:top;">:</td><td><div>8000</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">server_protocol</td><td style="vertical-align:top;">:</td><td><div>HTTP/1.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">server_software</td><td style="vertical-align:top;">:</td><td><div>Rocket 1.2.6</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">web2py_path</td><td style="vertical-align:top;">:</td><td><div>C:\\Users\\Wesly\\Desktop\\UCSC-Hack-2017</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">web2py_version</td><td style="vertical-align:top;">:</td><td><div>2.14.6-stable+timestamp.2016.05.10.00.21.47</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.errors</td><td style="vertical-align:top;">:</td><td><div>&lt;open file &#x27;&lt;stderr&gt;&#x27;, mode &#x27;w&#x27; at 0x0221D0D0&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.file_wrapper</td><td style="vertical-align:top;">:</td><td><div>&lt;class wsgiref.util.FileWrapper at 0x0321F148&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.input</td><td style="vertical-align:top;">:</td><td><div>&lt;socket._fileobject object at 0x07DE1D30&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.multiprocess</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.multithread</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.run_once</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.url_scheme</td><td style="vertical-align:top;">:</td><td><div>http</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.version</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>1</div></td></tr><tr><td><div>0</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_errors</td><td style="vertical-align:top;">:</td><td><div>&lt;open file &#x27;&lt;stderr&gt;&#x27;, mode &#x27;w&#x27; at 0x0221D0D0&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_file_wrapper</td><td style="vertical-align:top;">:</td><td><div>&lt;class wsgiref.util.FileWrapper at 0x0321F148&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_input</td><td style="vertical-align:top;">:</td><td><div>&lt;socket._fileobject object at 0x07DE1D30&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_multiprocess</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_multithread</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_run_once</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_url_scheme</td><td style="vertical-align:top;">:</td><td><div>http</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_version</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>1</div></td></tr><tr><td><div>0</div></td></tr></table></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">extension</td><td style="vertical-align:top;">:</td><td><div>html</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">folder</td><td style="vertical-align:top;">:</td><td><div>C:\\Users\\Wesly\\Desktop\\UCSC-Hack-2017\\applications\\ourhours\\</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">function</td><td style="vertical-align:top;">:</td><td><div>ecreate</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">global_settings</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">app_folders</td><td style="vertical-align:top;">:</td><td><div>set([&#x27;C:\\\\Users\\\\Wesly\\\\Desktop\\\\UCSC-Hack-2017\\\\applications\\\\welcome\\\\&#x27;, &#x27;C:\\\\Users\\\\Wesly\\\\Desktop\\\\UCSC-Hack-2017\\\\applications\\\\examples\\\\&#x27;, &#x27;C:\\\\Users\\\\Wesly\\\\Desktop\\\\UCSC-Hack-2017\\\\applications\\\\ourhours\\\\&#x27;, &#x27;C:\\\\Users\\\\Wesly\\\\Desktop\\\\UCSC-Hack-2017\\\\applications\\\\admin\\\\&#x27;])</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">applications_parent</td><td style="vertical-align:top;">:</td><td><div>C:\\Users\\Wesly\\Desktop\\UCSC-Hack-2017</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cmd_args</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cmd_options</td><td style="vertical-align:top;">:</td><td><div>&lt;Values at 0x2ddaeb8: {&#x27;verbose&#x27;: False, &#x27;ip&#x27;: &#x27;127.0.0.1&#x27;, &#x27;debuglevel&#x27;: 30, &#x27;with_scheduler&#x27;: False, &#x27;shutdown_timeout&#x27;: 5, &#x27;taskbar&#x27;: False, &#x27;with_coverage&#x27;: False, &#x27;pid_filename&#x27;: &#x27;httpserver.pid&#x27;, &#x27;maxthreads&#x27;: None, &#x27;softcron&#x27;: False, &#x27;server_name&#x27;: &#x27;DESKTOP-GDD7DCK&#x27;, &#x27;bpython&#x27;: False, &#x27;nogui&#x27;: False, &#x27;port&#x27;: 8000, &#x27;print_errors&#x27;: False, &#x27;extcron&#x27;: False, &#x27;runcron&#x27;: False, &#x27;run_system_tests&#x27;: False, &#x27;test&#x27;: None, &#x27;folder&#x27;: &#x27;C:\\\\Users\\\\Wesly\\\\Desktop\\\\UCSC-Hack-2017&#x27;, &#x27;config&#x27;: &#x27;&#x27;, &#x27;minthreads&#x27;: None, &#x27;shell&#x27;: None, &#x27;run&#x27;: &#x27;&#x27;, &#x27;log_filename&#x27;: &#x27;httpserver.log&#x27;, &#x27;profiler_dir&#x27;: None, &#x27;args&#x27;: [&#x27;&#x27;], &#x27;socket_timeout&#x27;: 5, &#x27;ssl_ca_certificate&#x27;: None, &#x27;scheduler&#x27;: None, &#x27;interfaces&#x27;: None, &#x27;ssl_private_key&#x27;: &#x27;&#x27;, &#x27;gae&#x27;: None, &#x27;password&#x27;: &#x27;******&#x27;, &#x27;request_queue_size&#x27;: 5, &#x27;ssl_certificate&#x27;: &#x27;&#x27;, &#x27;cronjob&#x27;: False, &#x27;numthreads&#x27;: None, &#x27;quiet&#x27;: False, &#x27;import_models&#x27;: False, &#x27;timeout&#x27;: 10, &#x27;plain&#x27;: False, &#x27;nobanner&#x27;: False}&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">db_sessions</td><td style="vertical-align:top;">:</td><td><div>set([])</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">debugging</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">gluon_parent</td><td style="vertical-align:top;">:</td><td><div>C:\\Users\\Wesly\\Desktop\\UCSC-Hack-2017</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_jython</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_pypy</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_source</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">local_hosts</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>fe80::81f2:e7ae:7efe:f1e7%23</div></td></tr><tr><td><div>DESKTOP-GDD7DCK</div></td></tr><tr><td><div>::ffff:127.0.0.1</div></td></tr><tr><td><div>::1</div></td></tr><tr><td><div>fe80::5efe:192.168.1.135%21</div></td></tr><tr><td><div>192.168.1.135</div></td></tr><tr><td><div>fe80::e941:c1cf:aca3:e27d%22</div></td></tr><tr><td><div>127.0.0.1</div></td></tr><tr><td><div>192.168.56.1</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">web2py_version</td><td style="vertical-align:top;">:</td><td><div>2.14.6-stable+timestamp.2016.05.10.00.21.47</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_https</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_local</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_restful</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_scheduler</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_shell</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">now</td><td style="vertical-align:top;">:</td><td><div>datetime.datetime(2017, 1, 21, 14, 19, 56, 388000)</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">raw_args</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">raw_extension</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">url</td><td style="vertical-align:top;">:</td><td><div>/ourhours/default/ecreate</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">utcnow</td><td style="vertical-align:top;">:</td><td><div>datetime.datetime(2017, 1, 21, 22, 19, 56, 388000)</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi</td><td style="vertical-align:top;">:</td><td><div>&lt;gluon.main.LazyWSGI object at 0x07956050&gt;</div></td></tr></table></div>'
+tRp62
+sS'frames'
+p63
+(lp64
+(dp65
+S'file'
+p66
+S'C:\\Users\\Wesly\\Desktop\\UCSC-Hack-2017\\gluon\\restricted.py'
+p67
+sS'dump'
+p68
+(dp69
+S'environment'
+p70
+S"{'A': <class 'gluon.html.A'>, 'ANY_OF': <class 'gluon.validators.ANY_OF'>, 'ASSIGNJS': <function ASSIGNJS>, 'Auth': <class 'gluon.tools.Auth'>, 'B': <class 'gluon.html.B'>, 'BEAUTIFY': <class 'gluon.html.BEAUTIFY'>, 'BODY': <class 'gluon.html.BODY'>, 'BR': <class 'gluon.html.BR'>, 'BUTTON': <class 'gluon.html.BUTTON'>, 'CAT': <class 'gluon.html.CAT'>, ...}"
+p71
+sS'ccode'
+p72
+S'<code object <module> at 08CC6B60, file "C:\\User...cations\\ourhours\\controllers/default.py", line 1>'
+p73
+ssS'lnum'
+p74
+I227
+sS'lines'
+p75
+(dp76
+I224
+S'            ccode = code'
+p77
+sI225
+S'        else:'
+p78
+sI226
+S'            ccode = compile2(code, layer)'
+p79
+sI227
+S'        exec ccode in environment'
+p80
+sI228
+S'    except HTTP:'
+p81
+sI229
+S'        raise'
+p82
+sI230
+S'    except RestrictedError:'
+p83
+sI231
+S'        # do not encapsulate (obfuscate) the original RestrictedError'
+p84
+sI222
+S'    try:'
+p85
+sI223
+S'        if isinstance(code, types.CodeType):'
+p86
+ssS'call'
+p87
+S"(code='from gluon.tools import Mail\\nimport imaplib\\nimpo...st, db)\\nresponse._vars=response._caller(ecreate)\\n', environment={'A': <class 'gluon.html.A'>, 'ANY_OF': <class 'gluon.validators.ANY_OF'>, 'ASSIGNJS': <function ASSIGNJS>, 'Auth': <class 'gluon.tools.Auth'>, 'B': <class 'gluon.html.B'>, 'BEAUTIFY': <class 'gluon.html.BEAUTIFY'>, 'BODY': <class 'gluon.html.BODY'>, 'BR': <class 'gluon.html.BR'>, 'BUTTON': <class 'gluon.html.BUTTON'>, 'CAT': <class 'gluon.html.CAT'>, ...}, layer=r'C:\\Users\\Wesly\\Desktop\\UCSC-Hack-2017\\applications\\ourhours\\controllers/default.py')"
+p88
+sS'func'
+p89
+S'restricted'
+p90
+sa(dp91
+g66
+S'C:\\Users\\Wesly\\Desktop\\UCSC-Hack-2017\\applications\\ourhours\\controllers\\default.py'
+p92
+sg68
+(dp93
+sg74
+I47
+sg75
+(dp94
+I37
+S'    return locals()'
+p95
+sI38
+S''
+sI39
+S'def user():'
+p96
+sI40
+S'    return dict(form=auth())'
+p97
+sI41
+S''
+sI42
+S'def download():'
+p98
+sI43
+S'    return response.download(request, db)'
+p99
+sI44
+S''
+sI45
+S'def picture():'
+p100
+sI46
+S'    return response.view(request, db)'
+p101
+ssg87
+S'()'
+p102
+sg89
+S'<module>'
+p103
+sa(dp104
+g66
+S'C:\\Users\\Wesly\\Desktop\\UCSC-Hack-2017\\gluon\\globals.py'
+p105
+sg68
+(dp106
+S'self'
+p107
+S'undefined'
+p108
+sS'f'
+S'<function ecreate>'
+p109
+ssg74
+I417
+sg75
+(dp110
+I416
+S'        self._vars = None'
+p111
+sI417
+S'        self._caller = lambda f: f()'
+p112
+sI418
+S'        self._view_environment = None'
+p113
+sI419
+S'        self._custom_commit = None'
+p114
+sI420
+S'        self._custom_rollback = None'
+p115
+sI421
+S"        self.generic_patterns = ['*']"
+p116
+sI412
+S"        self.flash = ''            # used by the default view layout"
+p117
+sI413
+S'        self.meta = Storage()      # used by web2py_ajax.html'
+p118
+sI414
+S'        self.menu = []             # used by the default view layout'
+p119
+sI415
+S'        self.files = []            # used by web2py_ajax.html'
+p120
+ssg87
+S'(f=<function ecreate>)'
+p121
+sg89
+S'<lambda>'
+p122
+sa(dp123
+g66
+S'C:\\Users\\Wesly\\Desktop\\UCSC-Hack-2017\\applications\\ourhours\\controllers\\default.py'
+p124
+sg68
+(dp125
+S'db.event'
+p126
+S'<Table event (id, event_name, event_id, event_de...nt_sdate, event_edate, event_stime, event_etime)>'
+p127
+sS'form'
+p128
+g108
+sS'global SQLFORM'
+p129
+S"<class 'gluon.sqlhtml.SQLFORM'>"
+p130
+sS'builtinTrue'
+p131
+S'True'
+p132
+sS').process'
+p133
+g108
+sS'deletable'
+p134
+g108
+sS'global db'
+p135
+S'<DAL uri="sqlite://storage.sqlite">'
+p136
+ssg74
+I23
+sg75
+(dp137
+I18
+S"        response.flash = 'Successful'"
+p138
+sI19
+S'    return locals()'
+p139
+sI20
+S''
+sI21
+S'# @auth.requires_login()'
+p140
+sI22
+S'def ecreate():'
+p141
+sI23
+S'    form = SQLFORM(db.event, deletable=True).process()'
+p142
+sI24
+S'    if form.accepted:'
+p143
+sI25
+S"        response.flash = 'Success'"
+p144
+sI26
+S"        redirect(URL('index'))"
+p145
+sI27
+S'    return locals()'
+p146
+ssg87
+S'()'
+p147
+sg89
+S'ecreate'
+p148
+sa(dp149
+g66
+S'C:\\Users\\Wesly\\Desktop\\UCSC-Hack-2017\\gluon\\html.py'
+p150
+sg68
+(dp151
+S'self'
+p152
+S'<gluon.sqlhtml.SQLFORM object>'
+p153
+sS'self.validate'
+p154
+S'<bound method SQLFORM.validate of <gluon.sqlhtml.SQLFORM object>>'
+p155
+sS'kwargs'
+p156
+S"{'dbio': True}"
+p157
+ssg74
+I2298
+sg75
+(dp158
+I2293
+S'                return dict(form=SQLFORM(db.table).process(onsuccess=my_callback)'
+p159
+sI2294
+S''
+sI2295
+S''
+sI2296
+S'        """'
+p160
+sI2297
+S"        kwargs['dbio'] = kwargs.get('dbio', True)  # necessary for SQLHTML forms"
+p161
+sI2298
+S'        self.validate(**kwargs)'
+p162
+sI2299
+S'        return self'
+p163
+sI2300
+S''
+sI2301
+S'    REDIRECT_JS = "window.location=\'%s\';return false"'
+p164
+sI2302
+S''
+ssg87
+S"(self=<gluon.sqlhtml.SQLFORM object>, **kwargs={'dbio': True})"
+p165
+sg89
+S'process'
+p166
+sa(dp167
+g66
+S'C:\\Users\\Wesly\\Desktop\\UCSC-Hack-2017\\gluon\\html.py'
+p168
+sg68
+(dp169
+S'self'
+p170
+S'<gluon.sqlhtml.SQLFORM object>'
+p171
+sS'self.accepts'
+p172
+S'<bound method SQLFORM.accepts of <gluon.sqlhtml.SQLFORM object>>'
+p173
+sS'kwargs'
+p174
+S"{'dbio': True, 'request_vars': <Storage {'event_description': '', 'event_name':...aae2-08342c2770b5', '_formname': 'event/create'}>, 'session': <Storage {'_formkey[event/create]': ['744e2ba1-1...gin]': ['1df78436-637a-4b47-aeab-17964732be3a']}>}"
+p175
+ssg74
+I2236
+sg75
+(dp176
+I2240
+S'                else:'
+p177
+sI2231
+S"        for key in ('message_onsuccess', 'message_onfailure', 'onsuccess',"
+p178
+sI2232
+S"                    'onfailure', 'next', 'message_onchange', 'onchange'):"
+p179
+sI2233
+S'            if key in kwargs:'
+p180
+sI2234
+S'                del kwargs[key]'
+p181
+sI2235
+S''
+sI2236
+S'        if self.accepts(**kwargs):'
+p182
+sI2237
+S"            if onsuccess == 'flash':"
+p183
+sI2238
+S'                if next:'
+p184
+sI2239
+S'                    current.session.flash = message_onsuccess'
+p185
+ssg87
+S"(self=<gluon.sqlhtml.SQLFORM object>, **kwargs={'dbio': True, 'request_vars': <Storage {'event_description': '', 'event_name':...aae2-08342c2770b5', '_formname': 'event/create'}>, 'session': <Storage {'_formkey[event/create]': ['744e2ba1-1...gin]': ['1df78436-637a-4b47-aeab-17964732be3a']}>})"
+p186
+sg89
+S'validate'
+p187
+sa(dp188
+g66
+S'C:\\Users\\Wesly\\Desktop\\UCSC-Hack-2017\\gluon\\sqlhtml.py'
+p189
+sg68
+(dp190
+S'self.vars.id'
+p191
+S'None'
+p192
+sS'fields'
+p193
+S"{'event_code': 'groups.group_code', 'event_description': '', 'event_edate': '', 'event_etime': '', 'event_id': <pydal.objects.Field object>, 'event_name': '11111', 'event_sdate': '', 'event_stime': ''}"
+p194
+sS'self'
+p195
+S'<gluon.sqlhtml.SQLFORM object>'
+p196
+sS'self.vars'
+p197
+S"<Storage {'event_description': '', 'event_name':...oup_code', 'event_edate': '', 'event_etime': ''}>"
+p198
+sS'self.table.insert'
+p199
+S'<bound method Table.insert of <Table event (id, ...t_sdate, event_edate, event_stime, event_etime)>>'
+p200
+sS'self.table'
+p201
+S'<Table event (id, event_name, event_id, event_de...nt_sdate, event_edate, event_stime, event_etime)>'
+p202
+ssg74
+I1746
+sg75
+(dp203
+I1741
+S'                    self.vars.id = self.record[self.id_field_name]'
+p204
+sI1742
+S'                    if fields:'
+p205
+sI1743
+S'                        self.table._db(self.table._id == self.record['
+p206
+sI1744
+S'                                       self.id_field_name]).update(**fields)'
+p207
+sI1745
+S'                else:'
+p208
+sI1746
+S'                    self.vars.id = self.table.insert(**fields)'
+p209
+sI1747
+S''
+sI1748
+S'        self.accepted = ret'
+p210
+sI1749
+S'        return ret'
+p211
+sI1750
+S''
+ssg87
+S"(self=<gluon.sqlhtml.SQLFORM object>, request_vars=<Storage {'event_description': '', 'event_name':...aae2-08342c2770b5', '_formname': 'event/create'}>, session=<Storage {'_formkey[event/create]': ['744e2ba1-1...gin]': ['1df78436-637a-4b47-aeab-17964732be3a']}>, formname='event/create', keepvalues=False, onvalidation=None, dbio=True, hideerror=False, detect_record_change=False, **kwargs={})"
+p212
+sg89
+S'accepts'
+p213
+sa(dp214
+g66
+S'C:\\Users\\Wesly\\Desktop\\UCSC-Hack-2017\\gluon\\packages\\dal\\pydal\\objects.py'
+p215
+sg68
+(dp216
+S'self._listify'
+p217
+S'<bound method Table._listify of <Table event (id...t_sdate, event_edate, event_stime, event_etime)>>'
+p218
+sS'fields'
+p219
+S"{'event_code': 'groups.group_code', 'event_description': '', 'event_edate': '', 'event_etime': '', 'event_id': <pydal.objects.Field object>, 'event_name': '11111', 'event_sdate': '', 'event_stime': ''}"
+p220
+sS'self'
+p221
+S'<Table event (id, event_name, event_id, event_de...nt_sdate, event_edate, event_stime, event_etime)>'
+p222
+sS'ret'
+p223
+g108
+sS'self._db._adapter'
+p224
+S'<pydal.adapters.sqlite.SQLiteAdapter object>'
+p225
+sS'self._db._adapter.insert'
+p226
+S'<bound method SQLiteAdapter.insert of <pydal.adapters.sqlite.SQLiteAdapter object>>'
+p227
+sS'self._db'
+p228
+S'<DAL uri="sqlite://storage.sqlite">'
+p229
+ssg74
+I726
+sg75
+(dp230
+I721
+S'    def insert(self, **fields):'
+p231
+sI722
+S'        fields = self._defaults(fields)'
+p232
+sI723
+S'        self._attempt_upload(fields)'
+p233
+sI724
+S'        if any(f(fields) for f in self._before_insert):'
+p234
+sI725
+S'            return 0'
+p235
+sI726
+S'        ret = self._db._adapter.insert(self, self._listify(fields))'
+p236
+sI727
+S'        if ret and self._after_insert:'
+p237
+sI728
+S'            fields = Row(fields)'
+p238
+sI729
+S'            [f(fields, ret) for f in self._after_insert]'
+p239
+sI730
+S'        return ret'
+p240
+ssg87
+S"(self=<Table event (id, event_name, event_id, event_de...nt_sdate, event_edate, event_stime, event_etime)>, **fields={'event_code': 'groups.group_code', 'event_description': '', 'event_edate': '', 'event_etime': '', 'event_id': <pydal.objects.Field object>, 'event_name': '11111', 'event_sdate': '', 'event_stime': ''})"
+p241
+sg89
+S'insert'
+p242
+sa(dp243
+g66
+S'C:\\Users\\Wesly\\Desktop\\UCSC-Hack-2017\\gluon\\packages\\dal\\pydal\\adapters\\base.py'
+p244
+sg68
+(dp245
+S'e'
+S"OperationalError('no such column: groups.id',)"
+p246
+ssg74
+I746
+sg75
+(dp247
+I741
+S'            self.execute(query)'
+p248
+sI742
+S'        except Exception:'
+p249
+sI743
+S'            e = sys.exc_info()[1]'
+p250
+sI744
+S"            if hasattr(table,'_on_insert_error'):"
+p251
+sI745
+S'                return table._on_insert_error(table,fields,e)'
+p252
+sI746
+S'            raise e'
+p253
+sI747
+S"        if hasattr(table, '_primarykey'):"
+p254
+sI748
+S'            mydict = dict([(k[0].name, k[1]) for k in fields if k[0].name in table._primarykey])'
+p255
+sI749
+S'            if mydict != {}:'
+p256
+sI750
+S'                return mydict'
+p257
+ssg87
+S"(self=<pydal.adapters.sqlite.SQLiteAdapter object>, table=<Table event (id, event_name, event_id, event_de...nt_sdate, event_edate, event_stime, event_etime)>, fields=[(<pydal.objects.Field object>, ''), (<pydal.objects.Field object>, '11111'), (<pydal.objects.Field object>, ''), (<pydal.objects.Field object>, ''), (<pydal.objects.Field object>, <pydal.objects.Field object>), (<pydal.objects.Field object>, 'groups.group_code'), (<pydal.objects.Field object>, ''), (<pydal.objects.Field object>, '')])"
+p258
+sg89
+g242
+sasS'pyver'
+p259
+S'Python 2.7.9: C:\\Users\\Wesly\\Desktop\\UCSC-Hack-2017\\web2py.exe (prefix: )'
+p260
+sS'session'
+p261
+g61
+(S's6\x01\x00\x00<div><table><tr><td style="font-weight:bold;vertical-align:top;">last_orderby</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">last_query</td><td style="vertical-align:top;">:</td><td><div>db.event.id&gt;0</div></td></tr></table></div>'
+tRp262
+sS'etype'
+p263
+S"<class 'sqlite3.OperationalError'>"
+p264
+sS'date'
+p265
+S'Sat Jan 21 14:19:56 2017'
+p266
+sS'response'
+p267
+g61
+(S's\xbb\x16\x00\x00<div><table><tr><td style="font-weight:bold;vertical-align:top;">body</td><td style="vertical-align:top;">:</td><td><div>&lt;cStringIO.StringO object at 0x077E1F60&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cookies</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">session_id_ourhours</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-c7286ff8-69e7-484b-b41a-9663286f0c08<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div>/</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">delimiters</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>{{</div></td></tr><tr><td><div>}}</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">files</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">flash</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">form_label_separator</td><td style="vertical-align:top;">:</td><td><div>: </div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">formstyle</td><td style="vertical-align:top;">:</td><td><div>table3cols</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">generic_patterns</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>*</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">headers</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">X-Powered-By</td><td style="vertical-align:top;">:</td><td><div>web2py</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">menu</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div><table><tr><td><div>Home</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>/ourhours/default/index</div></td></tr></table></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">meta</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">models_to_run</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>^\\w+\\.py$</div></td></tr><tr><td><div>^default/\\w+\\.py$</div></td></tr><tr><td><div>^default/ecreate/\\w+\\.py$</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">postprocessing</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_client</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_cookie_compression_level</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_cookie_expires</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_data_name</td><td style="vertical-align:top;">:</td><td><div>session_data_ourhours</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_file</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_filename</td><td style="vertical-align:top;">:</td><td><div>C:\\Users\\Wesly\\Desktop\\UCSC-Hack-2017\\applications\\ourhours\\sessions\\127.0.0.1-c7286ff8-69e7-484b-b41a-9663286f0c08</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_hash</td><td style="vertical-align:top;">:</td><td><div>21bbc1dfc8f178c589247b70672bfde5</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_name</td><td style="vertical-align:top;">:</td><td><div>session_id_ourhours</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_masterapp</td><td style="vertical-align:top;">:</td><td><div>ourhours</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_new</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_storage_type</td><td style="vertical-align:top;">:</td><td><div>cookie</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">status</td><td style="vertical-align:top;">:</td><td><div>200</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">view</td><td style="vertical-align:top;">:</td><td><div>default/ecreate.html</div></td></tr></table></div>'
+tRp268
+sS'locals'
+p269
+(dp270
+S'fields'
+p271
+S"[(<pydal.objects.Field object>, ''), (<pydal.objects.Field object>, '11111'), (<pydal.objects.Field object>, ''), (<pydal.objects.Field object>, ''), (<pydal.objects.Field object>, <pydal.objects.Field object>), (<pydal.objects.Field object>, 'groups.group_code'), (<pydal.objects.Field object>, ''), (<pydal.objects.Field object>, '')]"
+p272
+sS'self'
+p273
+S'<pydal.adapters.sqlite.SQLiteAdapter object>'
+p274
+sS'e'
+S"OperationalError('no such column: groups.id',)"
+p275
+sS'table'
+p276
+S'<Table event (id, event_name, event_id, event_de...nt_sdate, event_edate, event_stime, event_etime)>'
+p277
+sS'query'
+p278
+S'"INSERT INTO event(event_description,event_name,e...LL,NULL,groups.id,\'groups.group_code\',NULL,NULL);"'
+p279
+sssS'traceback'
+p280
+S'Traceback (most recent call last):\n  File "C:\\Users\\Wesly\\Desktop\\UCSC-Hack-2017\\gluon\\restricted.py", line 227, in restricted\n    exec ccode in environment\n  File "C:\\Users\\Wesly\\Desktop\\UCSC-Hack-2017\\applications\\ourhours\\controllers/default.py", line 47, in <module>\n  File "C:\\Users\\Wesly\\Desktop\\UCSC-Hack-2017\\gluon\\globals.py", line 417, in <lambda>\n    self._caller = lambda f: f()\n  File "C:\\Users\\Wesly\\Desktop\\UCSC-Hack-2017\\applications\\ourhours\\controllers/default.py", line 23, in ecreate\n    form = SQLFORM(db.event, deletable=True).process()\n  File "C:\\Users\\Wesly\\Desktop\\UCSC-Hack-2017\\gluon\\html.py", line 2298, in process\n    self.validate(**kwargs)\n  File "C:\\Users\\Wesly\\Desktop\\UCSC-Hack-2017\\gluon\\html.py", line 2236, in validate\n    if self.accepts(**kwargs):\n  File "C:\\Users\\Wesly\\Desktop\\UCSC-Hack-2017\\gluon\\sqlhtml.py", line 1746, in accepts\n    self.vars.id = self.table.insert(**fields)\n  File "C:\\Users\\Wesly\\Desktop\\UCSC-Hack-2017\\gluon\\packages\\dal\\pydal\\objects.py", line 726, in insert\n    ret = self._db._adapter.insert(self, self._listify(fields))\n  File "C:\\Users\\Wesly\\Desktop\\UCSC-Hack-2017\\gluon\\packages\\dal\\pydal\\adapters\\base.py", line 746, in insert\n    raise e\nOperationalError: no such column: groups.id\n'
+p281
+s.

@@ -6,6 +6,7 @@ from email.header import decode_header
 import random
 import string
 def index():
+    response.flash = ''.join([random.choice(string.ascii_letters + string.digits) for n in xrange(5)])
     groups = db(db.groups).select(db.groups.ALL)
     return locals()
 
@@ -15,7 +16,7 @@ def create():
     if form.accepted:
         
         redirect(URL('index'))
-        response.flash = 'Successful'
+        response.flash = 'Success'
     return locals()
 
 # @auth.requires_login()
@@ -29,18 +30,11 @@ def ecreate():
 # @auth.requires_login()
 def event_page():
     #currently faulty, returns all events
-    g = db.groups(request.args(0,cast=int)) or redirect(URL('index'))
-    db.event.event_id.default = g.id
-    db.event.event_code.default = g.group_code
-    event = db(db.event.event_id == g.id).select()
-    # event = db(db.event).select(db.event.ALL)
+#     g = db.groups(request.args(0,cast=int)) or redirect(URL('index'))
+#     db.event.event_code.default = g.group_code
+#     event = db(db.event.event_code == g.group_code).select()
+    event = db(db.event).select(db.event.ALL)
     return locals()
 
 def user():
     return dict(form=auth())
-
-def download():
-    return response.download(request, db)
-
-def picture():
-    return response.view(request, db)

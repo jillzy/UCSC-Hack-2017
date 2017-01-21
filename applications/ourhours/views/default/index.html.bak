@@ -1,0 +1,26 @@
+{{extend 'layout.html'}}
+ <div class="row main-navigation" role="navigation">
+    <ul class="hasqsg" id="mainNav">
+        <button>
+            <a href="http://127.0.0.1:8000/ourhours/default/user/login?_next=/ourhours/default/index">Log In</a>
+        </button>
+        <button>
+            <a href="{{=URL('index')}}">Home</a>
+        </button>
+    </ul>
+</div>
+<a href = "{{=URL('create')}}"><button>
+    Create Group
+    </button>
+</a>
+<br>
+{{if len(groups):}}
+{{for groups in groups:}}
+    <tr>
+        <a href = "{{=URL('event_page', args=groups.group_code)}}">
+            <td> {{=groups.group_name}}</td>
+        </a>
+        <br>
+    </tr>
+{{pass}}
+{{pass}}
