@@ -64,13 +64,28 @@
     // prevent android horizontal scrolling
     window.addEventListener("scroll", function(){window.scroll(0, window.pageYOffset);}, false);
   </script>
-          !-- jQuery -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 
-    <!-- Firebase -->
-    <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
+
+
+    <script src="https://www.gstatic.com/firebasejs/3.6.6/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyBcdz_Vm6rWJiYnEh9INZTZC9wCKWpvWN8",
+        authDomain: "ourhours-524b4.firebaseapp.com",
+        databaseURL: "https://ourhours-524b4.firebaseio.com",
+        storageBucket: "ourhours-524b4.appspot.com",
+        messagingSenderId: "228068546769"
+      };
+      firebase.initializeApp(config);
+    </script>
+
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 
     <!-- Firechat -->
     <link rel="stylesheet" href="https://cdn.firebase.com/libs/firechat/3.0.1/firechat.min.css" />
     <script src="https://cdn.firebase.com/libs/firechat/3.0.1/firechat.min.js"></script>
+
+    <script src = "/ourhours/static/js/main.js"></script>
 </html>
