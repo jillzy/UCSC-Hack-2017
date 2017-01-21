@@ -1,6 +1,9 @@
 /**
  * Created by jy on 1/21/2017.
  */
+var canChat;
+var user;
+
 function initChat(user) {
     // Get a Firebase Database ref
     var chatRef = firebase.database().ref("chat");
@@ -12,13 +15,27 @@ function initChat(user) {
     chat.setUser(user.uid, user.displayName);
 }
 
+function setFlag(){
+    if (firebase.auth().currentUser) {
+        canChat = true;
+        console.log("should instantiate now");
+    }
+}
+
+function startChat() {
+    console.log("wtf");
+    if (firebase.auth().currentUser && canChat) {
+        initChat(user);
+        console.log(user, " wants to start chat");
+    }
+}
 function login() {
 
-        var user = firebase.auth().currentUser;
+        user = firebase.auth().currentUser;
 
         if(user) {
-            initChat(user);
-            console.log(user, " is logged in");
+            canChat = true;
+            console.log("already logged in");
         } else {
             var provider = new firebase.auth.GoogleAuthProvider();
             firebase.auth().signInWithRedirect(provider).then(function(result) {
