@@ -46,18 +46,28 @@ def ecreate():
         redirect(URL('index'))
     return locals()
 
+import os
 import json
 from datetime import datetime
 from json import dumps
 
+x = 0
+
+# @auth.requires_login()
 def event_page():
     #currently faulty, returns all events
     g = db.groups(request.args(0,cast=int)) or redirect(URL('index'))
     db.event.event_id.default = g.id
     db.event.event_code.default = g.group_code
     event = db(db.event).select(db.event.ALL)
-    json_data = json.dumps([[e.event_allDay, e.event_name, e.event_id, e.start.strftime("%B %d, %Y"), e.end.strftime("%B %d, %Y"), e.event_description] for e in event])
+    json_data = json.dumps([{'allday' : e.event_allDay, 
+        'start' : e.start.strftime("%Y-%m-%d"), 
+        'end' : e.end.strftime("%Y-%m-%d")} for e in event])
+    x = json_data
     return locals()
+
+def get_json():
+    return dict(x=json(x))
 
 def user():
     return dict(form=auth())

@@ -126,7 +126,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.6.1/fullcalendar.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
+
     <script>
+        var json ={{=XML(x)}}
+        console.log(json)
         $(document).ready(function() {
             $('#bootstrapModalFullCalendar').fullCalendar({
                 header: {
@@ -143,17 +146,7 @@
                     return false;
                 },
                 
-                events:
-                [
-                   {
-                      "allday":"false",
-                      "start":moment().add('seconds',86400),
-                      "end":moment().add('seconds',86401),
-                      "url":"http://www.youtube.com/",
-                       backgroundColor: '#f44842'    
-                   }
-                ]
-                
+                events: json
             });
         });
     </script>
