@@ -1,21 +1,20 @@
 {{extend 'layout.html'}}
- <div class="row main-navigation" role="navigation" align="right">
-        <div id="firechat-wrapper">
-              <button onclick="login('google');">Login with Google</button>
-        </div>        
-</div>
 
-<h1> OurHour </h1>
+
+<center><h1> OurHours </h1></center>
 <style>
     .boxed {
         border: 1px solid black;
-        padding: 3px
+        padding: 3px;
         width: 1050px;
     }
 </style>
 
 <a href = "{{=URL('create')}}"><button>
     Create Group
+    </button>
+<a href = "{{=URL('join')}}"><button>
+    Join Group
     </button>
 </a>
 <br>
@@ -37,9 +36,7 @@
     {{pass}}
     
 </table>
+{{else:}}
+<i>You currently do not have any groups. </i>
 {{pass}}
-
-
-HI :)
-
 

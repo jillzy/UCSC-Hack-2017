@@ -18,6 +18,9 @@ def create():
         response.flash = 'Successful'
     return locals()
 
+def join():
+    return locals()
+
 # @auth.requires_login()
 def ecreate():
     form = SQLFORM(db.event, deletable=True).process()
@@ -32,8 +35,8 @@ def event_page():
     g = db.groups(request.args(0,cast=int)) or redirect(URL('index'))
     db.event.event_id.default = g.id
     db.event.event_code.default = g.group_code
-    event = db(db.event.event_id == g.id).select()
-    # event = db(db.event).select(db.event.ALL)
+    # event = db(db.event.event_id == g.id).select()
+    event = db(db.event).select(db.event.ALL)
     return locals()
 
 def user():
