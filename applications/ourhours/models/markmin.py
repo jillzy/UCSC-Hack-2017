@@ -14,12 +14,16 @@ db.define_table('groups',
                 Field('group_description', 'text', requires=IS_LENGTH(maxsize=80), default='No Group Description.'))
 
 db.define_table('event',
+                Field('event_allDay', 'boolean'),
                 Field('event_name', 'string'),
                 Field('event_id', 'integer'),
                 Field('event_description', 'text'),
                 Field('event_code', 'string'),
                 Field('start', 'datetime'),
                 Field('end', 'datetime'))
+
+db.define_table('join_group',
+                Field('join_code', 'string'))
 
 
 db.groups.group_code.writable = db.groups.group_code.readable = False

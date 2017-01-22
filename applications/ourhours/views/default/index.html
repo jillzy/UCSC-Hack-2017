@@ -13,6 +13,7 @@
 <a href = "{{=URL('create')}}"><button>
     Create Group
     </button>
+
 <a href = "{{=URL('join')}}"><button>
     Join Group
     </button>
@@ -23,7 +24,7 @@
     {{for groups in groups:}}
         <tr class = "boxed">
             {{if groups.optional_group_photo:}}
-                <td><img width="40px" src="{{=URL('download', args=groups.group_photo_optional)}}" /></td>
+                <td><img width="40px" src="{{=URL('download', args=groups.optional_group_photo)}}" /></td>
             {{else:}}
                 <td><img width="40px" src="http://www.drodd.com/images15/question-mark12.png" /></td>
             {{pass}}

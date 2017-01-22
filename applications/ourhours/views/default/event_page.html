@@ -1,4 +1,4 @@
-
+{{extend 'layout.html'}}
 <a href = "{{=URL('ecreate')}}"><button>
     Create Event
     </button>
@@ -17,6 +17,8 @@
         <br>
     </tr>
 {{pass}}
+{{else:}}
+<i> You currently have no events</i>
 {{pass}}
 </div>
 
@@ -80,9 +82,7 @@
                 events:
                 [
                    {
-                      // "title":"test",
                       "allday":"false",
-                      // "description":$("#{{=event.event_description}}").text(),
                       "start":moment().add('seconds',86400),
                       "end":moment().add('seconds',86401),
                       "url":"http://www.youtube.com/",
