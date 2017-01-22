@@ -1,4 +1,4 @@
-{{extend 'layout2.html'}}
+
 <head>
 
 <!-- BLOCK: uniform campus head  -->
@@ -43,15 +43,44 @@
 <script charset="utf-8" src="//static.ucsc.edu/_responsive/lib/fancybox/source/jquery.fancybox.pack.js" type="text/javascript"></script>
 <script charset="utf-8" src="//static.ucsc.edu/_responsive/js/fancybox.init.js" type="text/javascript"></script>
 
+
+<style>
+.a {
+	margin-top: 10px;
+    background-color: #008B8B; /* Green */
+    border: none;
+    color: white;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+}
+.r{
+    width:3000px;
+    height:40px;
+    background:black;
+}
+</style>
+
+
+<div class="r"><a href = "{{=URL('index')}}"><button class = 'a' style="margin-left: 250px; background-color:black; padding: 0px 0px; font-size:16px;">
+	Home
+	</button>
+</a></div>
+
 </head>
-<!-- <div id="firechat-wrapper" align = "right">
-              <button onclick="login('google');">Login with Google</button>
-</div> -->
-<a href = "{{=URL('ecreate')}}"><button>
+
+<a href = "{{=URL('ecreate')}}"><button class = 'a' style="margin-left: 250px;">
     Create Event
     </button>
 </a>
 
+<a href = "{{=URL('event_chat')}}"><button class = 'a'>
+    Chat
+    </button>
+</a>
+<center><h2> Calendar </h2></center>
 <br>
 <div style="display:none;">
 {{if len(event):}}
@@ -71,12 +100,7 @@
 {{pass}}
 </div>
 
-
-
-<div id="firechat-wrapper">
-      <button onclick="setFlag(),startChat()">Start Chatroom</button>
-</div>
-
+<center>
     <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -141,3 +165,4 @@
         });
     </script>
 </body>
+</center>

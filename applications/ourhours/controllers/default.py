@@ -61,9 +61,13 @@ def event_page():
     db.event.event_code.default = g.group_code
     event = db(db.event).select(db.event.ALL)
     json_data = json.dumps([{'allday' : e.event_allDay, 
+        'title' : e.event_name,
         'start' : e.start.strftime("%Y-%m-%d"), 
         'end' : e.end.strftime("%Y-%m-%d")} for e in event])
     x = json_data
+    return locals()
+
+def event_chat():
     return locals()
 
 def get_json():
