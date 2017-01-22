@@ -10331,3 +10331,11 @@
 127.0.0.1, 2017-01-22 11:06:13, GET, /ourhours/default/index, HTTP/1.1, 200, 0.184000
 127.0.0.1, 2017-01-22 11:06:15, GET, /ourhours/default/event_page/27, HTTP/1.1, 200, 0.188000
 127.0.0.1, 2017-01-22 11:06:35, GET, /ourhours/default/event_page/27, HTTP/1.1, 200, 0.149000
+127.0.0.1, 2017-01-22 11:15:06, GET, /ourhours/default/event_page/27, HTTP/1.1, 200, 0.157000
+127.0.0.1, 2017-01-22 11:15:45, GET, /ourhours/default/event_page/27, HTTP/1.1, 200, 0.169000
+127.0.0.1, 2017-01-22 11:16:40, GET, /ourhours/default/event_page/27, HTTP/1.1, 200, 0.212000
+127.0.0.1, 2017-01-22 11:16:57, GET, /ourhours/appadmin, HTTP/1.1, 200, 0.092000
+127.0.0.1, 2017-01-22 11:16:58, GET, /ourhours/appadmin/hooks, HTTP/1.1, 200, 0.105000
+127.0.0.1, 2017-01-22 11:17:06, GET, /ourhours/appadmin/select/db, HTTP/1.1, 200, 0.168000
+127.0.0.1, 2017-01-22 11:17:52, GET, /ourhours/default/event_page/27, HTTP/1.1, 200, 0.100000
+127.0.0.1, 2017-01-22 11:18:13, GET, /ourhours/default/index, HTTP/1.1, 200, 0.197000
