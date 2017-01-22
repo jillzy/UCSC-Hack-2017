@@ -1,0 +1,516 @@
+(dp1
+S'output'
+p2
+S"<type 'exceptions.UnboundLocalError'> local variable 'payload_in' referenced before assignment"
+p3
+sS'layer'
+p4
+S'C:\\Users\\Wesly\\Desktop\\UCSC-Hack-2017\\applications\\ourhours\\controllers/default.py'
+p5
+sS'code'
+p6
+S'from gluon.tools import Mail\nimport imaplib\nimport email\nfrom email.header import decode_header\n\nmail = Mail()\nmail.settings.server = \'smtp.gmail.com:587\'\nmail.settings.sender = \'ourhours1337@gmail.com\'\nmail.settings.login = \'ourhours1337@gmail.com:weslysmellsgood\'\n\nimport random\nimport string\n\n\ndef index():\n    groups = db(db.groups).select(db.groups.ALL)\n    return locals()\n\n\ndef create():\n    form = SQLFORM(db.groups, deletable=True).process()\n    if form.accepted:\n        db.groups.group_code.default=\'\'.join([random.choice(string.ascii_letters + string.digits) for n in xrange(5)])\n        mail.send(to=[request.vars.email],\n            subject="Password for " + request.vars.group_name,\n            message= request.vars.group_code)\n        redirect(URL(\'index\'))\n    return locals()\n\ndef join():\n    groups = db(db.groups).select(db.groups.ALL)\n    form = SQLFORM(db.join_group, deletable=True).process()\n    if form.accepted:\n        for groups in groups:\n            if request.vars.join_code in groups.group_code:\n                redirect(URL(\'event_page\', args=groups.id))\n            else:\n                response.flash = "Incorrect join code"\n    return locals()\n\ndef ecreate():\n    form = SQLFORM(db.event, deletable=True).process()\n    if form.accepted:\n        redirect(URL(\'index\'))\n    return locals()\n\nimport json\nfrom datetime import datetime\nfrom json import dumps\n\ndef event_page():\n    #currently faulty, returns all events\n    g = db.groups(request.args(0,cast=int)) or redirect(URL(\'index\'))\n    db.event.event_id.default = g.id\n    db.event.event_code.default = g.group_code\n    event = db(db.event).select(db.event.ALL)\n    json_data = json.dumps([[e.event_allDay, e.event_name, e.event_id, e.start.strftime("%B %d, %Y"), e.end.strftime("%B %d, %Y"), e.event_description] for e in event])\n    response.flash = json_data\n\n    return locals()\n\ndef user():\n    return dict(form=auth())\n\ndef download():\n    return response.download(request, db)\n\ndef picture():\n    return response.view(request, db)\nresponse._vars=response._caller(create)\n'
+p7
+sS'snapshot'
+p8
+(dp9
+S'exception'
+p10
+(dp11
+S'__hash__'
+p12
+S"<method-wrapper '__hash__' of exceptions.UnboundLocalError object>"
+p13
+sS'__setattr__'
+p14
+S"<method-wrapper '__setattr__' of exceptions.UnboundLocalError object>"
+p15
+sS'__reduce_ex__'
+p16
+S'<built-in method __reduce_ex__ of exceptions.UnboundLocalError object>'
+p17
+sS'__getslice__'
+p18
+S"<method-wrapper '__getslice__' of exceptions.UnboundLocalError object>"
+p19
+sS'__getitem__'
+p20
+S"<method-wrapper '__getitem__' of exceptions.UnboundLocalError object>"
+p21
+sS'__setstate__'
+p22
+S'<built-in method __setstate__ of exceptions.UnboundLocalError object>'
+p23
+sS'__reduce__'
+p24
+S'<built-in method __reduce__ of exceptions.UnboundLocalError object>'
+p25
+sS'__str__'
+p26
+S"<method-wrapper '__str__' of exceptions.UnboundLocalError object>"
+p27
+sS'__format__'
+p28
+S'<built-in method __format__ of exceptions.UnboundLocalError object>'
+p29
+sS'__getattribute__'
+p30
+S"<method-wrapper '__getattribute__' of exceptions.UnboundLocalError object>"
+p31
+sS'__class__'
+p32
+S"<type 'exceptions.UnboundLocalError'>"
+p33
+sS'__unicode__'
+p34
+S'<built-in method __unicode__ of exceptions.UnboundLocalError object>'
+p35
+sS'__delattr__'
+p36
+S"<method-wrapper '__delattr__' of exceptions.UnboundLocalError object>"
+p37
+sS'__subclasshook__'
+p38
+S'<built-in method __subclasshook__ of type object>'
+p39
+sS'__repr__'
+p40
+S"<method-wrapper '__repr__' of exceptions.UnboundLocalError object>"
+p41
+sS'args'
+p42
+S'("local variable \'payload_in\' referenced before assignment",)'
+p43
+sS'__dict__'
+p44
+S'{}'
+p45
+sS'__sizeof__'
+p46
+S'<built-in method __sizeof__ of exceptions.UnboundLocalError object>'
+p47
+sS'__doc__'
+p48
+S"'Local name referenced but not bound to a value.'"
+p49
+sS'__init__'
+p50
+S"<method-wrapper '__init__' of exceptions.UnboundLocalError object>"
+p51
+sS'__new__'
+p52
+S'<built-in method __new__ of type object>'
+p53
+ssS'evalue'
+p54
+S"local variable 'payload_in' referenced before assignment"
+p55
+sS'request'
+p56
+cgluon.html
+XML_unpickle
+p57
+(S's\xf2\xaa\x00\x00<div><table><tr><td style="font-weight:bold;vertical-align:top;">ajax</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">application</td><td style="vertical-align:top;">:</td><td><div>ourhours</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">args</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cid</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">client</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">controller</td><td style="vertical-align:top;">:</td><td><div>default</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cookies</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">resolution</td><td style="vertical-align:top;">:</td><td><div>1349<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_data_ourhours</td><td style="vertical-align:top;">:</td><td><div>8a7a4698d4c9370b9640d94b03271880:ch2eDalTmQ4JZWtBsM_tCO3LOp3l0CIPlR9_cdHXuIlXpYVkv3291Zs8UVsLlO5mSrn_v1IeWZFviVEIOhZe6oGV28uEBPl8sN_dYhzwQAVbJHG7ear9NkPpvYsQx9gdyleo2Ccab41nf5v4e7FgLQ6yE8FuyrE1wcIfI7zfF5REzmKelvrW6VjpSjraxqFj6hajbcCrn1hqetO7sHvjdfIol2XyKsWk-N_uwULVMFeddiHkMW1Q4Ac2cphYPOHRsKfaGqiy0IzCK7Wk53Fj1L_aTrJKJst52ftWI203jgPAYURvdHjHY4XDCbs4Yokol62ZKV1VVv19ao_QyfX9Q4EIo4gDrzbhGm3aJdsgrsmC0wV_QL5kZgns6VzTeM4yH2gF6GettbJBD7Lpo0V0r0qBQYcSRYC0ZGNCe59DdJ7QxODSh3XGgYZC3twC_gorQQ0fs5kQV-877F8D8jx4X6f9y5r3SXKVMQVWN6ZxshQx9-epMJ6qmvnF5yDM5zrbIEvCjEB5NWYItE7U5kSAtKDmrF9YeFKfz3VXXEi1tCheqep13YqNtTpDD9igh9qM3uIinRruGQqBeB_7qkhU1Ib_t1Vvd6z5ZGVmtfxoNBcOWxZWF8SxiVMfRAV1Ag7vh0Bk0c9aNGPUavbNEylSVJtvhth-5qu1OfiyEX2gg0MvefpGBXjuy_9K7u93IPd4YrM56qww_sBZXCcbuuXbw2x5S0sDb35paPD7yuA7aM2I9-Ft541wxMyE3N-rLHC_xtuYxJX3aEKZA2OMA-xktiLD-Mg5CbPpq-t-7F3cip6cuEcYguCzsU65omvBphpdaih5YBo-MjJ48gPwXuXFTK8dSa2DaqomLDVWa40GQr_P61C_2f4teMz88zt5CTVPwbiNKiP1j96hiZFAmvYTF2ofGSlsUGHBrg6t7RbaUvaZf89g0LiVXm1chwVXaxTK01UGulICfjSTOCKBUf2jrkhLNQXmpswFLHFYnamVohCS_IJPmNklgqOcEx7fxlkIjDWtFnZGCrOudQlzUQ-TT42OjCrQ4rB65Ch_Bw4By79VQyfsula5jtbJ1kd6L1IM_cnxfUVEFSMfF8HaxPRSDYF6RsYMQxRLVZb2u8ZbZHvROLWJP7wvBe8p8fL91UvIj-owjXqFp3KJLA9zHn0VjrgH-zTvPnz0pryPWErl6EI8uXjv-FaqTbR1Jups1A7N0RyN4OY1rzp5H49owXzWMIGciPw8-qSm0tCeQxHoUngk8o__0cNDASWwLeZfW8H2dIWjsuYWHhBbFYi6BirpeKbRRFi7kbpv_cb4EfsmP9OXQp0tCEwOd9E-2jWiPFfnWqL3hi2VIY6CP6FvS_p1HQPV7BifaKy1rcdH8-lRkx6s46bP5zCkJV27VtgJzo-VTT0dn9qdglrvTP-tYVePlP34_bVndHXY-NK6LvNA_GD47GsVGuCPynfCB_hxo2gKKtslqbdjeNsGePeVMX_EX34Kp55CUU25upcjQwZ3z7wYJANKbJvNvoY8XGffJTePxArbWD7I6flkYgrpv750e3tYf_vmm7uitIIsqWJUEcUbWC9Dy-93W6FUb72GItqux3chDqcAOLSufye5l5CdMlsSeA9h_IcOLJnUaNHlC2rNfwZUZwjkYQdP4H8qyHyNoLqSO0TN5LFDtJulk52hvTx5Ez4FOw243jGq8y4CyyYuV-M0S1sBBVdFmi69Kt0ZWbaB6tEbv9M0Bwo5k4lcw6iThHN6kAcCHd6Vv1-fSghUCcv6SroW24jBez3gBmLumP5hyPxhXhAgz3fOulhuqPMjwzmu4xbxJxa9M6DDR-Q_WDPWw-ZAGI5rWqoUt1UbsaKA-I_hIqgBPmaeLXOVgalUBf-_yNivRwKXsMggmHN_oDYkuPiZhGv6clDDMqFQnTmzrUnqmedoUxdiv6kIrRARsw-QsfgVrad4TseXiCldPKRYXFR3V796GquyS1m13MwkiX8LcfFr9zm9PqW5BBNx1ZWf2oh8udpzGK4VcO3IpWcjwDE4Q0fsHIQLdvngrPvHK9CJxGOJXMzVwa5xkqrpIEXJG0YSmrlEcDv7-kIxM6i3Oh8zXw9x4aUeq4DwlT_KRF7aO1RbIIzrKfCIpRRPVIgVFQcUZ5gM73ZBrAFBHIDv7odC3umkJr65DhZTH7oZydsHD7CS3WkSye1yyq_Ef77h-RlG3axqRCZNMn1k93dq8sCvlPDPs075NT4tL28WnLhlFRTes8-o1IshFTmkL7pyR5C3GRdrOcSUIU_Uww-0v_DHPd8ObN1rvKNfa7Vv6f6tglaYmqnRXy1rLUUIH-86VrVpEwsFfpFlL7v0C-Fhc54_e9mqjWTjvU688cvUP2GAv9jwA3yo3I-0p0wK-jsfR6kX0F3ax9nh-G1L84s0hUSOrJw_c4hOTn8BYd8FbMMZRK9rzKfCEesQm4-y3CrIYjs5T4T5TFvbt5VpDllNs2J5rfLJEa6ktqkIgI4cyRgSS4BbaLFaiAgizB7oVEEwYylNmd1xE19nO5cbkX4ss68BT7rxw9Yc_jh1siQgbtMGfYnMxqRZU51oq-DkU7Dt9rseyVWoowYTfU4aHy_wSoSsth3FS04c6z380cK2toEnd5GFHgdAZqvfEuB6QEZcLKFLSVtkJBPlKhHtnpS8SrOeFwQMUBY9Dwco3pX4bVVGlEY0VsgGLj5BoVEx5hJ1RQF1q3GavFId6K7P3TX7dTbovXE3aK0OoB3rC7nfSaj3zuOrQk0KsIKvmQSyoVnhPSZeWEnyo1jV64_GuhqGvkHhkwFhC3F2ojQiAp2trZ0n9wcEs_IT6Om6um1Dk6h_6B1jwtgrKF_jayreF3PCwJUW2hClaWU1jMaMoBo2o_G2EunTwo1e2CP9n0rR1QC-IcKjRGgAQWV45ohy7k6HDeHcXFcfyyhbUygb2hYVYTDJQSlsXgojzdt7CUAFtDWbO0kIwD3J5HBTj0h2n_7ph934gPPCM4Ss8JEibktUK5znTf1KgNlJ3b661O5U15RMc3j25ESye-dSGlI73RrXJdXps_iDbDtBUFPEA6wwERJLYLZ9D7Nzs33lOtahpBBZADMs8S7fa5WcUokqTkjT9daymvvaGXpC-BBtVuXtgjlnr5JMmsWuqnVHuTXLFooAEc8-5uUgRRgqOp4bRJKADkxH8UcnMTab0Dy7lCV2CKpoENbgqi0FsQZmr6LgFtvjSdgUsbkLW6vUoZcuErvY6xo_Pfq2x1CKtAubyB3dmLZEV9nkD8Uk4Vw5OP8jZEGbp-MUz_4uafd4i7cCz8_y0mHXV6NLyBFwNZA910j_dWA9rx_oir_0D4Ge1ukxGtPk6z0MqzzpTvrrmAcEcUxgukUPMlVgIEINeftPujUBrahW05AYpd1IWCKQROmc8Be174QObp2dOGYcIL7iuidNwDSGjdYTTZk2X3aKTKENlA9-aRRWvUuSeW6zdnBByUbA7rOb_lNhTwMbJVQ1Tl6iQF95flTIFHUseie3stE27aNo6OKmwSoBhUrTz87gr_LKGghOyuwbowj98tIDEdknk-xQhro4d49H-JNbXnpICKZfxESQ_u9sMoOdKBwqAFOS2E4lOBrtJ1taldhvO6J1hb3TD3oX7rvbmb-njlZeGvZYdk5zTO1un1zDWFggfCY-t7j3XpRduuFjHlw=<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_admin</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-5e4d5587-8e46-4ab9-bda4-cde90ee24cff<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_hackathon</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-e9d19e57-2c82-4246-95e2-3afb87897355<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_hw</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-23223d0c-fdad-4421-b0fa-bfb22452a98b<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_layouttest</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-9dd550cb-7d25-4599-add6-bbf406414416<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_ourhours</td><td style="vertical-align:top;">:</td><td><div>True<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_welcome</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-3404b542-72e6-426d-9bd7-f225ed0f1803<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">env</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">CONTENT_LENGTH</td><td style="vertical-align:top;">:</td><td><div>773</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">CONTENT_TYPE</td><td style="vertical-align:top;">:</td><td><div>multipart/form-data; boundary=----WebKitFormBoundaryYyq3euzTptLBSbEc</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_ACCEPT</td><td style="vertical-align:top;">:</td><td><div>text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_ACCEPT_ENCODING</td><td style="vertical-align:top;">:</td><td><div>gzip, deflate, br</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_ACCEPT_LANGUAGE</td><td style="vertical-align:top;">:</td><td><div>en-US,en;q=0.8</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_CACHE_CONTROL</td><td style="vertical-align:top;">:</td><td><div>max-age=0</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_CONNECTION</td><td style="vertical-align:top;">:</td><td><div>keep-alive</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_CONTENT_LENGTH</td><td style="vertical-align:top;">:</td><td><div>773</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_CONTENT_TYPE</td><td style="vertical-align:top;">:</td><td><div>multipart/form-data; boundary=----WebKitFormBoundaryYyq3euzTptLBSbEc</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_COOKIE</td><td style="vertical-align:top;">:</td><td><div>session_id_layouttest=127.0.0.1-9dd550cb-7d25-4599-add6-bbf406414416; resolution=1349; session_id_hackathon=127.0.0.1-e9d19e57-2c82-4246-95e2-3afb87897355; session_id_hw=127.0.0.1-23223d0c-fdad-4421-b0fa-bfb22452a98b; session_id_welcome=127.0.0.1-3404b542-72e6-426d-9bd7-f225ed0f1803; session_id_admin=127.0.0.1-5e4d5587-8e46-4ab9-bda4-cde90ee24cff; session_data_ourhours=&quot;8a7a4698d4c9370b9640d94b03271880:ch2eDalTmQ4JZWtBsM_tCO3LOp3l0CIPlR9_cdHXuIlXpYVkv3291Zs8UVsLlO5mSrn_v1IeWZFviVEIOhZe6oGV28uEBPl8sN_dYhzwQAVbJHG7ear9NkPpvYsQx9gdyleo2Ccab41nf5v4e7FgLQ6yE8FuyrE1wcIfI7zfF5REzmKelvrW6VjpSjraxqFj6hajbcCrn1hqetO7sHvjdfIol2XyKsWk-N_uwULVMFeddiHkMW1Q4Ac2cphYPOHRsKfaGqiy0IzCK7Wk53Fj1L_aTrJKJst52ftWI203jgPAYURvdHjHY4XDCbs4Yokol62ZKV1VVv19ao_QyfX9Q4EIo4gDrzbhGm3aJdsgrsmC0wV_QL5kZgns6VzTeM4yH2gF6GettbJBD7Lpo0V0r0qBQYcSRYC0ZGNCe59DdJ7QxODSh3XGgYZC3twC_gorQQ0fs5kQV-877F8D8jx4X6f9y5r3SXKVMQVWN6ZxshQx9-epMJ6qmvnF5yDM5zrbIEvCjEB5NWYItE7U5kSAtKDmrF9YeFKfz3VXXEi1tCheqep13YqNtTpDD9igh9qM3uIinRruGQqBeB_7qkhU1Ib_t1Vvd6z5ZGVmtfxoNBcOWxZWF8SxiVMfRAV1Ag7vh0Bk0c9aNGPUavbNEylSVJtvhth-5qu1OfiyEX2gg0MvefpGBXjuy_9K7u93IPd4YrM56qww_sBZXCcbuuXbw2x5S0sDb35paPD7yuA7aM2I9-Ft541wxMyE3N-rLHC_xtuYxJX3aEKZA2OMA-xktiLD-Mg5CbPpq-t-7F3cip6cuEcYguCzsU65omvBphpdaih5YBo-MjJ48gPwXuXFTK8dSa2DaqomLDVWa40GQr_P61C_2f4teMz88zt5CTVPwbiNKiP1j96hiZFAmvYTF2ofGSlsUGHBrg6t7RbaUvaZf89g0LiVXm1chwVXaxTK01UGulICfjSTOCKBUf2jrkhLNQXmpswFLHFYnamVohCS_IJPmNklgqOcEx7fxlkIjDWtFnZGCrOudQlzUQ-TT42OjCrQ4rB65Ch_Bw4By79VQyfsula5jtbJ1kd6L1IM_cnxfUVEFSMfF8HaxPRSDYF6RsYMQxRLVZb2u8ZbZHvROLWJP7wvBe8p8fL91UvIj-owjXqFp3KJLA9zHn0VjrgH-zTvPnz0pryPWErl6EI8uXjv-FaqTbR1Jups1A7N0RyN4OY1rzp5H49owXzWMIGciPw8-qSm0tCeQxHoUngk8o__0cNDASWwLeZfW8H2dIWjsuYWHhBbFYi6BirpeKbRRFi7kbpv_cb4EfsmP9OXQp0tCEwOd9E-2jWiPFfnWqL3hi2VIY6CP6FvS_p1HQPV7BifaKy1rcdH8-lRkx6s46bP5zCkJV27VtgJzo-VTT0dn9qdglrvTP-tYVePlP34_bVndHXY-NK6LvNA_GD47GsVGuCPynfCB_hxo2gKKtslqbdjeNsGePeVMX_EX34Kp55CUU25upcjQwZ3z7wYJANKbJvNvoY8XGffJTePxArbWD7I6flkYgrpv750e3tYf_vmm7uitIIsqWJUEcUbWC9Dy-93W6FUb72GItqux3chDqcAOLSufye5l5CdMlsSeA9h_IcOLJnUaNHlC2rNfwZUZwjkYQdP4H8qyHyNoLqSO0TN5LFDtJulk52hvTx5Ez4FOw243jGq8y4CyyYuV-M0S1sBBVdFmi69Kt0ZWbaB6tEbv9M0Bwo5k4lcw6iThHN6kAcCHd6Vv1-fSghUCcv6SroW24jBez3gBmLumP5hyPxhXhAgz3fOulhuqPMjwzmu4xbxJxa9M6DDR-Q_WDPWw-ZAGI5rWqoUt1UbsaKA-I_hIqgBPmaeLXOVgalUBf-_yNivRwKXsMggmHN_oDYkuPiZhGv6clDDMqFQnTmzrUnqmedoUxdiv6kIrRARsw-QsfgVrad4TseXiCldPKRYXFR3V796GquyS1m13MwkiX8LcfFr9zm9PqW5BBNx1ZWf2oh8udpzGK4VcO3IpWcjwDE4Q0fsHIQLdvngrPvHK9CJxGOJXMzVwa5xkqrpIEXJG0YSmrlEcDv7-kIxM6i3Oh8zXw9x4aUeq4DwlT_KRF7aO1RbIIzrKfCIpRRPVIgVFQcUZ5gM73ZBrAFBHIDv7odC3umkJr65DhZTH7oZydsHD7CS3WkSye1yyq_Ef77h-RlG3axqRCZNMn1k93dq8sCvlPDPs075NT4tL28WnLhlFRTes8-o1IshFTmkL7pyR5C3GRdrOcSUIU_Uww-0v_DHPd8ObN1rvKNfa7Vv6f6tglaYmqnRXy1rLUUIH-86VrVpEwsFfpFlL7v0C-Fhc54_e9mqjWTjvU688cvUP2GAv9jwA3yo3I-0p0wK-jsfR6kX0F3ax9nh-G1L84s0hUSOrJw_c4hOTn8BYd8FbMMZRK9rzKfCEesQm4-y3CrIYjs5T4T5TFvbt5VpDllNs2J5rfLJEa6ktqkIgI4cyRgSS4BbaLFaiAgizB7oVEEwYylNmd1xE19nO5cbkX4ss68BT7rxw9Yc_jh1siQgbtMGfYnMxqRZU51oq-DkU7Dt9rseyVWoowYTfU4aHy_wSoSsth3FS04c6z380cK2toEnd5GFHgdAZqvfEuB6QEZcLKFLSVtkJBPlKhHtnpS8SrOeFwQMUBY9Dwco3pX4bVVGlEY0VsgGLj5BoVEx5hJ1RQF1q3GavFId6K7P3TX7dTbovXE3aK0OoB3rC7nfSaj3zuOrQk0KsIKvmQSyoVnhPSZeWEnyo1jV64_GuhqGvkHhkwFhC3F2ojQiAp2trZ0n9wcEs_IT6Om6um1Dk6h_6B1jwtgrKF_jayreF3PCwJUW2hClaWU1jMaMoBo2o_G2EunTwo1e2CP9n0rR1QC-IcKjRGgAQWV45ohy7k6HDeHcXFcfyyhbUygb2hYVYTDJQSlsXgojzdt7CUAFtDWbO0kIwD3J5HBTj0h2n_7ph934gPPCM4Ss8JEibktUK5znTf1KgNlJ3b661O5U15RMc3j25ESye-dSGlI73RrXJdXps_iDbDtBUFPEA6wwERJLYLZ9D7Nzs33lOtahpBBZADMs8S7fa5WcUokqTkjT9daymvvaGXpC-BBtVuXtgjlnr5JMmsWuqnVHuTXLFooAEc8-5uUgRRgqOp4bRJKADkxH8UcnMTab0Dy7lCV2CKpoENbgqi0FsQZmr6LgFtvjSdgUsbkLW6vUoZcuErvY6xo_Pfq2x1CKtAubyB3dmLZEV9nkD8Uk4Vw5OP8jZEGbp-MUz_4uafd4i7cCz8_y0mHXV6NLyBFwNZA910j_dWA9rx_oir_0D4Ge1ukxGtPk6z0MqzzpTvrrmAcEcUxgukUPMlVgIEINeftPujUBrahW05AYpd1IWCKQROmc8Be174QObp2dOGYcIL7iuidNwDSGjdYTTZk2X3aKTKENlA9-aRRWvUuSeW6zdnBByUbA7rOb_lNhTwMbJVQ1Tl6iQF95flTIFHUseie3stE27aNo6OKmwSoBhUrTz87gr_LKGghOyuwbowj98tIDEdknk-xQhro4d49H-JNbXnpICKZfxESQ_u9sMoOdKBwqAFOS2E4lOBrtJ1taldhvO6J1hb3TD3oX7rvbmb-njlZeGvZYdk5zTO1un1zDWFggfCY-t7j3XpRduuFjHlw=&quot;; session_id_ourhours=True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_HOST</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1:8000</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_ORIGIN</td><td style="vertical-align:top;">:</td><td><div>http://127.0.0.1:8000</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_REFERER</td><td style="vertical-align:top;">:</td><td><div>http://127.0.0.1:8000/ourhours/default/create</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_UPGRADE_INSECURE_REQUESTS</td><td style="vertical-align:top;">:</td><td><div>1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_USER_AGENT</td><td style="vertical-align:top;">:</td><td><div>Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">PATH_INFO</td><td style="vertical-align:top;">:</td><td><div>/ourhours/default/create</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">QUERY_STRING</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">REMOTE_ADDR</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">REMOTE_PORT</td><td style="vertical-align:top;">:</td><td><div>57087</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">REQUEST_METHOD</td><td style="vertical-align:top;">:</td><td><div>POST</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SCRIPT_NAME</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SERVER_NAME</td><td style="vertical-align:top;">:</td><td><div>DESKTOP-GDD7DCK</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SERVER_PORT</td><td style="vertical-align:top;">:</td><td><div>8000</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SERVER_PROTOCOL</td><td style="vertical-align:top;">:</td><td><div>HTTP/1.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SERVER_SOFTWARE</td><td style="vertical-align:top;">:</td><td><div>Rocket 1.2.6</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">app_folders</td><td style="vertical-align:top;">:</td><td><div>set([&#x27;C:\\\\Users\\\\Wesly\\\\Desktop\\\\UCSC-Hack-2017\\\\applications\\\\welcome\\\\&#x27;, &#x27;C:\\\\Users\\\\Wesly\\\\Desktop\\\\UCSC-Hack-2017\\\\applications\\\\examples\\\\&#x27;, &#x27;C:\\\\Users\\\\Wesly\\\\Desktop\\\\UCSC-Hack-2017\\\\applications\\\\ourhours\\\\&#x27;, &#x27;C:\\\\Users\\\\Wesly\\\\Desktop\\\\UCSC-Hack-2017\\\\applications\\\\admin\\\\&#x27;])</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">applications_parent</td><td style="vertical-align:top;">:</td><td><div>C:\\Users\\Wesly\\Desktop\\UCSC-Hack-2017</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cmd_args</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cmd_options</td><td style="vertical-align:top;">:</td><td><div>&lt;Values at 0x2ddaeb8: {&#x27;verbose&#x27;: False, &#x27;ip&#x27;: &#x27;127.0.0.1&#x27;, &#x27;debuglevel&#x27;: 30, &#x27;with_scheduler&#x27;: False, &#x27;shutdown_timeout&#x27;: 5, &#x27;taskbar&#x27;: False, &#x27;with_coverage&#x27;: False, &#x27;pid_filename&#x27;: &#x27;httpserver.pid&#x27;, &#x27;maxthreads&#x27;: None, &#x27;softcron&#x27;: False, &#x27;server_name&#x27;: &#x27;DESKTOP-GDD7DCK&#x27;, &#x27;bpython&#x27;: False, &#x27;nogui&#x27;: False, &#x27;port&#x27;: 8000, &#x27;print_errors&#x27;: False, &#x27;extcron&#x27;: False, &#x27;runcron&#x27;: False, &#x27;run_system_tests&#x27;: False, &#x27;test&#x27;: None, &#x27;folder&#x27;: &#x27;C:\\\\Users\\\\Wesly\\\\Desktop\\\\UCSC-Hack-2017&#x27;, &#x27;config&#x27;: &#x27;&#x27;, &#x27;minthreads&#x27;: None, &#x27;shell&#x27;: None, &#x27;run&#x27;: &#x27;&#x27;, &#x27;log_filename&#x27;: &#x27;httpserver.log&#x27;, &#x27;profiler_dir&#x27;: None, &#x27;args&#x27;: [&#x27;&#x27;], &#x27;socket_timeout&#x27;: 5, &#x27;ssl_ca_certificate&#x27;: None, &#x27;scheduler&#x27;: None, &#x27;interfaces&#x27;: None, &#x27;ssl_private_key&#x27;: &#x27;&#x27;, &#x27;gae&#x27;: None, &#x27;password&#x27;: &#x27;******&#x27;, &#x27;request_queue_size&#x27;: 5, &#x27;ssl_certificate&#x27;: &#x27;&#x27;, &#x27;cronjob&#x27;: False, &#x27;numthreads&#x27;: None, &#x27;quiet&#x27;: False, &#x27;import_models&#x27;: False, &#x27;timeout&#x27;: 10, &#x27;plain&#x27;: False, &#x27;nobanner&#x27;: False}&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">content_length</td><td style="vertical-align:top;">:</td><td><div>773</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">content_type</td><td style="vertical-align:top;">:</td><td><div>multipart/form-data; boundary=----WebKitFormBoundaryYyq3euzTptLBSbEc</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">db_sessions</td><td style="vertical-align:top;">:</td><td><div>set([])</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">debugging</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">gluon_parent</td><td style="vertical-align:top;">:</td><td><div>C:\\Users\\Wesly\\Desktop\\UCSC-Hack-2017</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_accept</td><td style="vertical-align:top;">:</td><td><div>text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_accept_encoding</td><td style="vertical-align:top;">:</td><td><div>gzip, deflate, br</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_accept_language</td><td style="vertical-align:top;">:</td><td><div>en-US,en;q=0.8</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_cache_control</td><td style="vertical-align:top;">:</td><td><div>max-age=0</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_connection</td><td style="vertical-align:top;">:</td><td><div>keep-alive</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_content_length</td><td style="vertical-align:top;">:</td><td><div>773</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_content_type</td><td style="vertical-align:top;">:</td><td><div>multipart/form-data; boundary=----WebKitFormBoundaryYyq3euzTptLBSbEc</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_cookie</td><td style="vertical-align:top;">:</td><td><div>session_id_layouttest=127.0.0.1-9dd550cb-7d25-4599-add6-bbf406414416; resolution=1349; session_id_hackathon=127.0.0.1-e9d19e57-2c82-4246-95e2-3afb87897355; session_id_hw=127.0.0.1-23223d0c-fdad-4421-b0fa-bfb22452a98b; session_id_welcome=127.0.0.1-3404b542-72e6-426d-9bd7-f225ed0f1803; session_id_admin=127.0.0.1-5e4d5587-8e46-4ab9-bda4-cde90ee24cff; session_data_ourhours=&quot;8a7a4698d4c9370b9640d94b03271880:ch2eDalTmQ4JZWtBsM_tCO3LOp3l0CIPlR9_cdHXuIlXpYVkv3291Zs8UVsLlO5mSrn_v1IeWZFviVEIOhZe6oGV28uEBPl8sN_dYhzwQAVbJHG7ear9NkPpvYsQx9gdyleo2Ccab41nf5v4e7FgLQ6yE8FuyrE1wcIfI7zfF5REzmKelvrW6VjpSjraxqFj6hajbcCrn1hqetO7sHvjdfIol2XyKsWk-N_uwULVMFeddiHkMW1Q4Ac2cphYPOHRsKfaGqiy0IzCK7Wk53Fj1L_aTrJKJst52ftWI203jgPAYURvdHjHY4XDCbs4Yokol62ZKV1VVv19ao_QyfX9Q4EIo4gDrzbhGm3aJdsgrsmC0wV_QL5kZgns6VzTeM4yH2gF6GettbJBD7Lpo0V0r0qBQYcSRYC0ZGNCe59DdJ7QxODSh3XGgYZC3twC_gorQQ0fs5kQV-877F8D8jx4X6f9y5r3SXKVMQVWN6ZxshQx9-epMJ6qmvnF5yDM5zrbIEvCjEB5NWYItE7U5kSAtKDmrF9YeFKfz3VXXEi1tCheqep13YqNtTpDD9igh9qM3uIinRruGQqBeB_7qkhU1Ib_t1Vvd6z5ZGVmtfxoNBcOWxZWF8SxiVMfRAV1Ag7vh0Bk0c9aNGPUavbNEylSVJtvhth-5qu1OfiyEX2gg0MvefpGBXjuy_9K7u93IPd4YrM56qww_sBZXCcbuuXbw2x5S0sDb35paPD7yuA7aM2I9-Ft541wxMyE3N-rLHC_xtuYxJX3aEKZA2OMA-xktiLD-Mg5CbPpq-t-7F3cip6cuEcYguCzsU65omvBphpdaih5YBo-MjJ48gPwXuXFTK8dSa2DaqomLDVWa40GQr_P61C_2f4teMz88zt5CTVPwbiNKiP1j96hiZFAmvYTF2ofGSlsUGHBrg6t7RbaUvaZf89g0LiVXm1chwVXaxTK01UGulICfjSTOCKBUf2jrkhLNQXmpswFLHFYnamVohCS_IJPmNklgqOcEx7fxlkIjDWtFnZGCrOudQlzUQ-TT42OjCrQ4rB65Ch_Bw4By79VQyfsula5jtbJ1kd6L1IM_cnxfUVEFSMfF8HaxPRSDYF6RsYMQxRLVZb2u8ZbZHvROLWJP7wvBe8p8fL91UvIj-owjXqFp3KJLA9zHn0VjrgH-zTvPnz0pryPWErl6EI8uXjv-FaqTbR1Jups1A7N0RyN4OY1rzp5H49owXzWMIGciPw8-qSm0tCeQxHoUngk8o__0cNDASWwLeZfW8H2dIWjsuYWHhBbFYi6BirpeKbRRFi7kbpv_cb4EfsmP9OXQp0tCEwOd9E-2jWiPFfnWqL3hi2VIY6CP6FvS_p1HQPV7BifaKy1rcdH8-lRkx6s46bP5zCkJV27VtgJzo-VTT0dn9qdglrvTP-tYVePlP34_bVndHXY-NK6LvNA_GD47GsVGuCPynfCB_hxo2gKKtslqbdjeNsGePeVMX_EX34Kp55CUU25upcjQwZ3z7wYJANKbJvNvoY8XGffJTePxArbWD7I6flkYgrpv750e3tYf_vmm7uitIIsqWJUEcUbWC9Dy-93W6FUb72GItqux3chDqcAOLSufye5l5CdMlsSeA9h_IcOLJnUaNHlC2rNfwZUZwjkYQdP4H8qyHyNoLqSO0TN5LFDtJulk52hvTx5Ez4FOw243jGq8y4CyyYuV-M0S1sBBVdFmi69Kt0ZWbaB6tEbv9M0Bwo5k4lcw6iThHN6kAcCHd6Vv1-fSghUCcv6SroW24jBez3gBmLumP5hyPxhXhAgz3fOulhuqPMjwzmu4xbxJxa9M6DDR-Q_WDPWw-ZAGI5rWqoUt1UbsaKA-I_hIqgBPmaeLXOVgalUBf-_yNivRwKXsMggmHN_oDYkuPiZhGv6clDDMqFQnTmzrUnqmedoUxdiv6kIrRARsw-QsfgVrad4TseXiCldPKRYXFR3V796GquyS1m13MwkiX8LcfFr9zm9PqW5BBNx1ZWf2oh8udpzGK4VcO3IpWcjwDE4Q0fsHIQLdvngrPvHK9CJxGOJXMzVwa5xkqrpIEXJG0YSmrlEcDv7-kIxM6i3Oh8zXw9x4aUeq4DwlT_KRF7aO1RbIIzrKfCIpRRPVIgVFQcUZ5gM73ZBrAFBHIDv7odC3umkJr65DhZTH7oZydsHD7CS3WkSye1yyq_Ef77h-RlG3axqRCZNMn1k93dq8sCvlPDPs075NT4tL28WnLhlFRTes8-o1IshFTmkL7pyR5C3GRdrOcSUIU_Uww-0v_DHPd8ObN1rvKNfa7Vv6f6tglaYmqnRXy1rLUUIH-86VrVpEwsFfpFlL7v0C-Fhc54_e9mqjWTjvU688cvUP2GAv9jwA3yo3I-0p0wK-jsfR6kX0F3ax9nh-G1L84s0hUSOrJw_c4hOTn8BYd8FbMMZRK9rzKfCEesQm4-y3CrIYjs5T4T5TFvbt5VpDllNs2J5rfLJEa6ktqkIgI4cyRgSS4BbaLFaiAgizB7oVEEwYylNmd1xE19nO5cbkX4ss68BT7rxw9Yc_jh1siQgbtMGfYnMxqRZU51oq-DkU7Dt9rseyVWoowYTfU4aHy_wSoSsth3FS04c6z380cK2toEnd5GFHgdAZqvfEuB6QEZcLKFLSVtkJBPlKhHtnpS8SrOeFwQMUBY9Dwco3pX4bVVGlEY0VsgGLj5BoVEx5hJ1RQF1q3GavFId6K7P3TX7dTbovXE3aK0OoB3rC7nfSaj3zuOrQk0KsIKvmQSyoVnhPSZeWEnyo1jV64_GuhqGvkHhkwFhC3F2ojQiAp2trZ0n9wcEs_IT6Om6um1Dk6h_6B1jwtgrKF_jayreF3PCwJUW2hClaWU1jMaMoBo2o_G2EunTwo1e2CP9n0rR1QC-IcKjRGgAQWV45ohy7k6HDeHcXFcfyyhbUygb2hYVYTDJQSlsXgojzdt7CUAFtDWbO0kIwD3J5HBTj0h2n_7ph934gPPCM4Ss8JEibktUK5znTf1KgNlJ3b661O5U15RMc3j25ESye-dSGlI73RrXJdXps_iDbDtBUFPEA6wwERJLYLZ9D7Nzs33lOtahpBBZADMs8S7fa5WcUokqTkjT9daymvvaGXpC-BBtVuXtgjlnr5JMmsWuqnVHuTXLFooAEc8-5uUgRRgqOp4bRJKADkxH8UcnMTab0Dy7lCV2CKpoENbgqi0FsQZmr6LgFtvjSdgUsbkLW6vUoZcuErvY6xo_Pfq2x1CKtAubyB3dmLZEV9nkD8Uk4Vw5OP8jZEGbp-MUz_4uafd4i7cCz8_y0mHXV6NLyBFwNZA910j_dWA9rx_oir_0D4Ge1ukxGtPk6z0MqzzpTvrrmAcEcUxgukUPMlVgIEINeftPujUBrahW05AYpd1IWCKQROmc8Be174QObp2dOGYcIL7iuidNwDSGjdYTTZk2X3aKTKENlA9-aRRWvUuSeW6zdnBByUbA7rOb_lNhTwMbJVQ1Tl6iQF95flTIFHUseie3stE27aNo6OKmwSoBhUrTz87gr_LKGghOyuwbowj98tIDEdknk-xQhro4d49H-JNbXnpICKZfxESQ_u9sMoOdKBwqAFOS2E4lOBrtJ1taldhvO6J1hb3TD3oX7rvbmb-njlZeGvZYdk5zTO1un1zDWFggfCY-t7j3XpRduuFjHlw=&quot;; session_id_ourhours=True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_host</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1:8000</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_origin</td><td style="vertical-align:top;">:</td><td><div>http://127.0.0.1:8000</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_referer</td><td style="vertical-align:top;">:</td><td><div>http://127.0.0.1:8000/ourhours/default/create</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_upgrade_insecure_requests</td><td style="vertical-align:top;">:</td><td><div>1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_user_agent</td><td style="vertical-align:top;">:</td><td><div>Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.87 Safari/537.36</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_jython</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_pypy</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_source</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">local_hosts</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>fe80::81f2:e7ae:7efe:f1e7%23</div></td></tr><tr><td><div>DESKTOP-GDD7DCK</div></td></tr><tr><td><div>::ffff:127.0.0.1</div></td></tr><tr><td><div>::1</div></td></tr><tr><td><div>fe80::5efe:192.168.1.135%21</div></td></tr><tr><td><div>192.168.1.135</div></td></tr><tr><td><div>fe80::e941:c1cf:aca3:e27d%22</div></td></tr><tr><td><div>127.0.0.1</div></td></tr><tr><td><div>192.168.56.1</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path_info</td><td style="vertical-align:top;">:</td><td><div>/ourhours/default/create</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">query_string</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">remote_addr</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">remote_port</td><td style="vertical-align:top;">:</td><td><div>57087</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">request_method</td><td style="vertical-align:top;">:</td><td><div>POST</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">request_uri</td><td style="vertical-align:top;">:</td><td><div>/ourhours/default/create</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">script_name</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">server_name</td><td style="vertical-align:top;">:</td><td><div>DESKTOP-GDD7DCK</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">server_port</td><td style="vertical-align:top;">:</td><td><div>8000</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">server_protocol</td><td style="vertical-align:top;">:</td><td><div>HTTP/1.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">server_software</td><td style="vertical-align:top;">:</td><td><div>Rocket 1.2.6</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">web2py_path</td><td style="vertical-align:top;">:</td><td><div>C:\\Users\\Wesly\\Desktop\\UCSC-Hack-2017</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">web2py_version</td><td style="vertical-align:top;">:</td><td><div>2.14.6-stable+timestamp.2016.05.10.00.21.47</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.errors</td><td style="vertical-align:top;">:</td><td><div>&lt;open file &#x27;&lt;stderr&gt;&#x27;, mode &#x27;w&#x27; at 0x0221D0D0&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.file_wrapper</td><td style="vertical-align:top;">:</td><td><div>&lt;class wsgiref.util.FileWrapper at 0x0321F148&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.input</td><td style="vertical-align:top;">:</td><td><div>&lt;socket._fileobject object at 0x07DC8EB0&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.multiprocess</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.multithread</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.run_once</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.url_scheme</td><td style="vertical-align:top;">:</td><td><div>http</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.version</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>1</div></td></tr><tr><td><div>0</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_errors</td><td style="vertical-align:top;">:</td><td><div>&lt;open file &#x27;&lt;stderr&gt;&#x27;, mode &#x27;w&#x27; at 0x0221D0D0&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_file_wrapper</td><td style="vertical-align:top;">:</td><td><div>&lt;class wsgiref.util.FileWrapper at 0x0321F148&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_input</td><td style="vertical-align:top;">:</td><td><div>&lt;socket._fileobject object at 0x07DC8EB0&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_multiprocess</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_multithread</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_run_once</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_url_scheme</td><td style="vertical-align:top;">:</td><td><div>http</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_version</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>1</div></td></tr><tr><td><div>0</div></td></tr></table></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">extension</td><td style="vertical-align:top;">:</td><td><div>html</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">folder</td><td style="vertical-align:top;">:</td><td><div>C:\\Users\\Wesly\\Desktop\\UCSC-Hack-2017\\applications\\ourhours\\</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">function</td><td style="vertical-align:top;">:</td><td><div>create</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">global_settings</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">app_folders</td><td style="vertical-align:top;">:</td><td><div>set([&#x27;C:\\\\Users\\\\Wesly\\\\Desktop\\\\UCSC-Hack-2017\\\\applications\\\\welcome\\\\&#x27;, &#x27;C:\\\\Users\\\\Wesly\\\\Desktop\\\\UCSC-Hack-2017\\\\applications\\\\examples\\\\&#x27;, &#x27;C:\\\\Users\\\\Wesly\\\\Desktop\\\\UCSC-Hack-2017\\\\applications\\\\ourhours\\\\&#x27;, &#x27;C:\\\\Users\\\\Wesly\\\\Desktop\\\\UCSC-Hack-2017\\\\applications\\\\admin\\\\&#x27;])</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">applications_parent</td><td style="vertical-align:top;">:</td><td><div>C:\\Users\\Wesly\\Desktop\\UCSC-Hack-2017</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cmd_args</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cmd_options</td><td style="vertical-align:top;">:</td><td><div>&lt;Values at 0x2ddaeb8: {&#x27;verbose&#x27;: False, &#x27;ip&#x27;: &#x27;127.0.0.1&#x27;, &#x27;debuglevel&#x27;: 30, &#x27;with_scheduler&#x27;: False, &#x27;shutdown_timeout&#x27;: 5, &#x27;taskbar&#x27;: False, &#x27;with_coverage&#x27;: False, &#x27;pid_filename&#x27;: &#x27;httpserver.pid&#x27;, &#x27;maxthreads&#x27;: None, &#x27;softcron&#x27;: False, &#x27;server_name&#x27;: &#x27;DESKTOP-GDD7DCK&#x27;, &#x27;bpython&#x27;: False, &#x27;nogui&#x27;: False, &#x27;port&#x27;: 8000, &#x27;print_errors&#x27;: False, &#x27;extcron&#x27;: False, &#x27;runcron&#x27;: False, &#x27;run_system_tests&#x27;: False, &#x27;test&#x27;: None, &#x27;folder&#x27;: &#x27;C:\\\\Users\\\\Wesly\\\\Desktop\\\\UCSC-Hack-2017&#x27;, &#x27;config&#x27;: &#x27;&#x27;, &#x27;minthreads&#x27;: None, &#x27;shell&#x27;: None, &#x27;run&#x27;: &#x27;&#x27;, &#x27;log_filename&#x27;: &#x27;httpserver.log&#x27;, &#x27;profiler_dir&#x27;: None, &#x27;args&#x27;: [&#x27;&#x27;], &#x27;socket_timeout&#x27;: 5, &#x27;ssl_ca_certificate&#x27;: None, &#x27;scheduler&#x27;: None, &#x27;interfaces&#x27;: None, &#x27;ssl_private_key&#x27;: &#x27;&#x27;, &#x27;gae&#x27;: None, &#x27;password&#x27;: &#x27;******&#x27;, &#x27;request_queue_size&#x27;: 5, &#x27;ssl_certificate&#x27;: &#x27;&#x27;, &#x27;cronjob&#x27;: False, &#x27;numthreads&#x27;: None, &#x27;quiet&#x27;: False, &#x27;import_models&#x27;: False, &#x27;timeout&#x27;: 10, &#x27;plain&#x27;: False, &#x27;nobanner&#x27;: False}&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">db_sessions</td><td style="vertical-align:top;">:</td><td><div>set([])</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">debugging</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">gluon_parent</td><td style="vertical-align:top;">:</td><td><div>C:\\Users\\Wesly\\Desktop\\UCSC-Hack-2017</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_jython</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_pypy</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_source</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">local_hosts</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>fe80::81f2:e7ae:7efe:f1e7%23</div></td></tr><tr><td><div>DESKTOP-GDD7DCK</div></td></tr><tr><td><div>::ffff:127.0.0.1</div></td></tr><tr><td><div>::1</div></td></tr><tr><td><div>fe80::5efe:192.168.1.135%21</div></td></tr><tr><td><div>192.168.1.135</div></td></tr><tr><td><div>fe80::e941:c1cf:aca3:e27d%22</div></td></tr><tr><td><div>127.0.0.1</div></td></tr><tr><td><div>192.168.56.1</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">web2py_version</td><td style="vertical-align:top;">:</td><td><div>2.14.6-stable+timestamp.2016.05.10.00.21.47</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_https</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_local</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_restful</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_scheduler</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_shell</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">now</td><td style="vertical-align:top;">:</td><td><div>datetime.datetime(2017, 1, 21, 23, 56, 31, 253000)</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">raw_args</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">raw_extension</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">url</td><td style="vertical-align:top;">:</td><td><div>/ourhours/default/create</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">utcnow</td><td style="vertical-align:top;">:</td><td><div>datetime.datetime(2017, 1, 22, 7, 56, 31, 253000)</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi</td><td style="vertical-align:top;">:</td><td><div>&lt;gluon.main.LazyWSGI object at 0x08CDE310&gt;</div></td></tr></table></div>'
+tRp58
+sS'frames'
+p59
+(lp60
+(dp61
+S'file'
+p62
+S'C:\\Users\\Wesly\\Desktop\\UCSC-Hack-2017\\gluon\\restricted.py'
+p63
+sS'dump'
+p64
+(dp65
+S'environment'
+p66
+S"{'A': <class 'gluon.html.A'>, 'ANY_OF': <class 'gluon.validators.ANY_OF'>, 'ASSIGNJS': <function ASSIGNJS>, 'Auth': <class 'gluon.tools.Auth'>, 'B': <class 'gluon.html.B'>, 'BEAUTIFY': <class 'gluon.html.BEAUTIFY'>, 'BODY': <class 'gluon.html.BODY'>, 'BR': <class 'gluon.html.BR'>, 'BUTTON': <class 'gluon.html.BUTTON'>, 'CAT': <class 'gluon.html.CAT'>, ...}"
+p67
+sS'ccode'
+p68
+S'<code object <module> at 07EDE6E0, file "C:\\User...cations\\ourhours\\controllers/default.py", line 1>'
+p69
+ssS'lnum'
+p70
+I227
+sS'lines'
+p71
+(dp72
+I224
+S'            ccode = code'
+p73
+sI225
+S'        else:'
+p74
+sI226
+S'            ccode = compile2(code, layer)'
+p75
+sI227
+S'        exec ccode in environment'
+p76
+sI228
+S'    except HTTP:'
+p77
+sI229
+S'        raise'
+p78
+sI230
+S'    except RestrictedError:'
+p79
+sI231
+S'        # do not encapsulate (obfuscate) the original RestrictedError'
+p80
+sI222
+S'    try:'
+p81
+sI223
+S'        if isinstance(code, types.CodeType):'
+p82
+ssS'call'
+p83
+S"(code='from gluon.tools import Mail\\nimport imaplib\\nimpo...est, db)\\nresponse._vars=response._caller(create)\\n', environment={'A': <class 'gluon.html.A'>, 'ANY_OF': <class 'gluon.validators.ANY_OF'>, 'ASSIGNJS': <function ASSIGNJS>, 'Auth': <class 'gluon.tools.Auth'>, 'B': <class 'gluon.html.B'>, 'BEAUTIFY': <class 'gluon.html.BEAUTIFY'>, 'BODY': <class 'gluon.html.BODY'>, 'BR': <class 'gluon.html.BR'>, 'BUTTON': <class 'gluon.html.BUTTON'>, 'CAT': <class 'gluon.html.CAT'>, ...}, layer=r'C:\\Users\\Wesly\\Desktop\\UCSC-Hack-2017\\applications\\ourhours\\controllers/default.py')"
+p84
+sS'func'
+p85
+S'restricted'
+p86
+sa(dp87
+g62
+S'C:\\Users\\Wesly\\Desktop\\UCSC-Hack-2017\\applications\\ourhours\\controllers\\default.py'
+p88
+sg64
+(dp89
+sg70
+I70
+sg71
+(dp90
+I64
+S''
+sI65
+S'def download():'
+p91
+sI66
+S'    return response.download(request, db)'
+p92
+sI67
+S''
+sI68
+S'def picture():'
+p93
+sI69
+S'    return response.view(request, db)'
+p94
+sI60
+S'    return locals()'
+p95
+sI61
+S''
+sI62
+S'def user():'
+p96
+sI63
+S'    return dict(form=auth())'
+p97
+ssg83
+S'()'
+p98
+sg85
+S'<module>'
+p99
+sa(dp100
+g62
+S'C:\\Users\\Wesly\\Desktop\\UCSC-Hack-2017\\gluon\\globals.py'
+p101
+sg64
+(dp102
+S'self'
+p103
+S'undefined'
+p104
+sS'f'
+S'<function create>'
+p105
+ssg70
+I417
+sg71
+(dp106
+I416
+S'        self._vars = None'
+p107
+sI417
+S'        self._caller = lambda f: f()'
+p108
+sI418
+S'        self._view_environment = None'
+p109
+sI419
+S'        self._custom_commit = None'
+p110
+sI420
+S'        self._custom_rollback = None'
+p111
+sI421
+S"        self.generic_patterns = ['*']"
+p112
+sI412
+S"        self.flash = ''            # used by the default view layout"
+p113
+sI413
+S'        self.meta = Storage()      # used by web2py_ajax.html'
+p114
+sI414
+S'        self.menu = []             # used by the default view layout'
+p115
+sI415
+S'        self.files = []            # used by web2py_ajax.html'
+p116
+ssg83
+S'(f=<function create>)'
+p117
+sg85
+S'<lambda>'
+p118
+sa(dp119
+g62
+S'C:\\Users\\Wesly\\Desktop\\UCSC-Hack-2017\\applications\\ourhours\\controllers\\default.py'
+p120
+sg64
+(dp121
+S'global request'
+p122
+S"<Storage {'_vars': <Storage {'email': 'welim@ucs...ktop\\\\UCSC-Hack-2017\\\\applications\\\\ourhours\\\\'}>"
+p123
+sS'request.vars'
+p124
+S"<Storage {'email': 'welim@ucsc.edu', 'group_name...Group Description.', 'optional_group_photo': ''}>"
+p125
+sS'message'
+p126
+g104
+sS'request.vars.group_code'
+p127
+S'None'
+p128
+ssg70
+I26
+sg71
+(dp129
+I21
+S'    form = SQLFORM(db.groups, deletable=True).process()'
+p130
+sI22
+S'    if form.accepted:'
+p131
+sI23
+S"        db.groups.group_code.default=''.join([random.choice(string.ascii_letters + string.digits) for n in xrange(5)])"
+p132
+sI24
+S'        mail.send(to=[request.vars.email],'
+p133
+sI25
+S'            subject="Password for " + request.vars.group_name,'
+p134
+sI26
+S'            message= request.vars.group_code)'
+p135
+sI27
+S"        redirect(URL('index'))"
+p136
+sI28
+S'    return locals()'
+p137
+sI29
+S''
+sI30
+S'def join():'
+p138
+ssg83
+S'()'
+p139
+sg85
+S'create'
+p140
+sa(dp141
+g62
+S'C:\\Users\\Wesly\\Desktop\\UCSC-Hack-2017\\gluon\\tools.py'
+p142
+sg64
+(dp143
+S'payload_in'
+p144
+g104
+sS'payload'
+p145
+g104
+ssg70
+I734
+sg71
+(dp146
+I736
+S'        if from_address:'
+p147
+sI737
+S"            payload['From'] = encoded_or_raw(from_address.decode(encoding))"
+p148
+sI738
+S'        else:'
+p149
+sI729
+S'            out.close()'
+p150
+sI730
+S'            st = str(out.read())'
+p151
+sI731
+S'            payload = message_from_string(st)'
+p152
+sI732
+S'        else:'
+p153
+sI733
+S'            # no cryptography process as usual'
+p154
+sI734
+S'            payload = payload_in'
+p155
+sI735
+S''
+ssg83
+S"(self=<gluon.tools.Mail object>, to=['welim@ucsc.edu'], subject='Password for t', message=None, attachments=None, cc=None, bcc=None, reply_to=None, sender='ourhours1337@gmail.com', encoding='utf-8', raw=False, headers={}, from_address=None, cipher_type=None, sign=True, sign_passphrase=None, encrypt=True, x509_sign_keyfile=None, x509_sign_chainfile=None, x509_sign_certfile=None, x509_crypt_certfiles=None, x509_nocerts=None)"
+p156
+sg85
+S'send'
+p157
+sasS'pyver'
+p158
+S'Python 2.7.9: C:\\Users\\Wesly\\Desktop\\UCSC-Hack-2017\\web2py.exe (prefix: )'
+p159
+sS'session'
+p160
+g57
+(S's\x81\n\x00\x00<div><table><tr><td style="font-weight:bold;vertical-align:top;">auth</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">expiration</td><td style="vertical-align:top;">:</td><td><div>3600</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">hmac_key</td><td style="vertical-align:top;">:</td><td><div>c7047707-286e-408d-8699-5271756390e2</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">last_visit</td><td style="vertical-align:top;">:</td><td><div>datetime.datetime(2017, 1, 21, 22, 52, 59, 99000)</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">remember_me</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">user</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">email</td><td style="vertical-align:top;">:</td><td><div>welim@ucsc.edu</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">first_name</td><td style="vertical-align:top;">:</td><td><div>Wesly</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">id</td><td style="vertical-align:top;">:</td><td><div>1L</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">last_name</td><td style="vertical-align:top;">:</td><td><div>Lim</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">registration_id</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">registration_key</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">reset_password_key</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">username</td><td style="vertical-align:top;">:</td><td><div>welim</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">user_groups</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">1</td><td style="vertical-align:top;">:</td><td><div>user_1</div></td></tr></table></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">flash</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">last_orderby</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">last_query</td><td style="vertical-align:top;">:</td><td><div>db.groups.id&gt;0</div></td></tr></table></div>'
+tRp161
+sS'etype'
+p162
+S"<type 'exceptions.UnboundLocalError'>"
+p163
+sS'date'
+p164
+S'Sat Jan 21 23:56:31 2017'
+p165
+sS'response'
+p166
+g57
+(S's\xc1\x16\x00\x00<div><table><tr><td style="font-weight:bold;vertical-align:top;">body</td><td style="vertical-align:top;">:</td><td><div>&lt;cStringIO.StringO object at 0x08CDE0C0&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cookies</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">session_id_ourhours</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-a45ccd58-1d73-4f4d-baad-cfe25f4aac39<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div>/</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">delimiters</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>{{</div></td></tr><tr><td><div>}}</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">files</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">flash</td><td style="vertical-align:top;">:</td><td><div>Success!</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">form_label_separator</td><td style="vertical-align:top;">:</td><td><div>: </div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">formstyle</td><td style="vertical-align:top;">:</td><td><div>table3cols</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">generic_patterns</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>*</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">headers</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">X-Powered-By</td><td style="vertical-align:top;">:</td><td><div>web2py</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">menu</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div><table><tr><td><div>Home</div></td></tr><tr><td><div>False</div></td></tr><tr><td><div>/ourhours/default/index</div></td></tr></table></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">meta</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">models_to_run</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>^\\w+\\.py$</div></td></tr><tr><td><div>^default/\\w+\\.py$</div></td></tr><tr><td><div>^default/create/\\w+\\.py$</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">postprocessing</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_client</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_cookie_compression_level</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_cookie_expires</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_data_name</td><td style="vertical-align:top;">:</td><td><div>session_data_ourhours</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_file</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_filename</td><td style="vertical-align:top;">:</td><td><div>C:\\Users\\Wesly\\Desktop\\UCSC-Hack-2017\\applications\\ourhours\\sessions\\127.0.0.1-a45ccd58-1d73-4f4d-baad-cfe25f4aac39</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_hash</td><td style="vertical-align:top;">:</td><td><div>51341bc990d177aa77c4969ace43802f</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_name</td><td style="vertical-align:top;">:</td><td><div>session_id_ourhours</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_masterapp</td><td style="vertical-align:top;">:</td><td><div>ourhours</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_new</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_storage_type</td><td style="vertical-align:top;">:</td><td><div>cookie</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">status</td><td style="vertical-align:top;">:</td><td><div>200</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">view</td><td style="vertical-align:top;">:</td><td><div>default/create.html</div></td></tr></table></div>'
+tRp167
+sS'locals'
+p168
+(dp169
+S'from_address'
+p170
+S'None'
+p171
+sS'encoding'
+p172
+S"'utf-8'"
+p173
+sS'cc'
+p174
+S'None'
+p175
+sS'text'
+p176
+S'None'
+p177
+sS'sign'
+p178
+S'True'
+p179
+sS'raw'
+p180
+S'False'
+p181
+sS'cipher_type'
+p182
+S'None'
+p183
+sS'x509_sign_certfile'
+p184
+S'None'
+p185
+sS'encoded_or_raw'
+p186
+S'<function encoded_or_raw>'
+p187
+sS'message'
+p188
+S'None'
+p189
+sS'subject'
+p190
+S"'Password for t'"
+p191
+sS'encrypt'
+p192
+g179
+sS'x509_sign_keyfile'
+p193
+S'None'
+p194
+sS'self'
+p195
+S'<gluon.tools.Mail object>'
+p196
+sS'sign_passphrase'
+p197
+S'None'
+p198
+sS'to'
+p199
+S"['welim@ucsc.edu']"
+p200
+sS'html'
+p201
+S'None'
+p202
+sS'encode_header'
+p203
+S'<function encode_header>'
+p204
+sS'x509_crypt_certfiles'
+p205
+S'None'
+p206
+sS'x509_nocerts'
+p207
+S'None'
+p208
+sS'sender'
+p209
+S"'ourhours1337@gmail.com'"
+p210
+sS'x509_sign_chainfile'
+p211
+S'None'
+p212
+sS'bcc'
+p213
+S'None'
+p214
+sS'attachments'
+p215
+S'None'
+p216
+sS'headers'
+p217
+g45
+sS'reply_to'
+p218
+S'None'
+p219
+sssS'traceback'
+p220
+S'Traceback (most recent call last):\n  File "C:\\Users\\Wesly\\Desktop\\UCSC-Hack-2017\\gluon\\restricted.py", line 227, in restricted\n    exec ccode in environment\n  File "C:\\Users\\Wesly\\Desktop\\UCSC-Hack-2017\\applications\\ourhours\\controllers/default.py", line 70, in <module>\n  File "C:\\Users\\Wesly\\Desktop\\UCSC-Hack-2017\\gluon\\globals.py", line 417, in <lambda>\n    self._caller = lambda f: f()\n  File "C:\\Users\\Wesly\\Desktop\\UCSC-Hack-2017\\applications\\ourhours\\controllers/default.py", line 26, in create\n    message= request.vars.group_code)\n  File "C:\\Users\\Wesly\\Desktop\\UCSC-Hack-2017\\gluon\\tools.py", line 734, in send\n    payload = payload_in\nUnboundLocalError: local variable \'payload_in\' referenced before assignment\n'
+p221
+s.

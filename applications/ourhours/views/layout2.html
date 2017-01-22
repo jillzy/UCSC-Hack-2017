@@ -24,7 +24,6 @@
     <header class="black padded">      
       <div class="container middle max900">
         <div class="fill middle">                    
-          <label class="ham" for="menu"><i class="fa fa-bars padded"></i></label>
           <div class="burger accordion">
             <input type="checkbox" id="menu"/>
             {{=MENU(response.menu,_class='menu')}}
@@ -47,23 +46,14 @@
         <div class="quarter padded">{{block right_sidebar}}{{end}}</div>
         {{pass}}
       </div>
-      <div class="silver center padded">
-        <a class="fa fa-twitter" href="https://twitter.com/web2py/"></a>
-        <a class="fa fa-facebook" href="https://www.facebook.com/web2py/"></a>
-      </div>
     </main>
-    <footer class="black">
-      <div class="container padded max900">
-        <div class="fill">
-          Copyright @ 2016 - Powered by Web2py
-        </div>
-      </div>
-    </footer>
   </body>  
   <script>
     // prevent android horizontal scrolling
     window.addEventListener("scroll", function(){window.scroll(0, window.pageYOffset);}, false);
   </script>
+
+
 
 
 
@@ -88,4 +78,84 @@
     <script src="https://cdn.firebase.com/libs/firechat/3.0.1/firechat.min.js"></script>
 
     <script src = "/ourhours/static/js/main.js"></script>
+
+
+
+
+
+
+
+
+
+    <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" type="text/css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.6.1/fullcalendar.min.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <br />
+                <div id="bootstrapModalFullCalendar"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="fullCalModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span> <span class="sr-only">close</span></button>
+                    <h4 id="modalTitle" class="modal-title"></h4>
+                </div>
+                <div id="modalBody" class="modal-body"></div>
+                <div id="going" class="modal-body"></div>
+                <div class="modal-footer">
+                    <a class="btn btn-primary" id="eventUrl" target="_blank">Attending</a>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.2/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.6.1/fullcalendar.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#bootstrapModalFullCalendar').fullCalendar({
+                header: {
+                    left: 'today',
+                    center: 'prev title next',
+                    right: 'month agendaWeek agendaDay'
+                },
+                eventClick:  function(event, jsEvent, view) {
+                    $('#modalTitle').html($('#ev'));
+                    $('#modalBody').html($('#des'));
+                    $('#going').text("hi");
+                    $('#eventUrl').attr('href',event.url);
+                    $('#fullCalModal').modal();
+                    return false;
+                },
+                
+                events:
+                [
+                   {
+                      "allday":"false",
+                      "start":moment().add('seconds',86400),
+                      "end":moment().add('seconds',86401),
+                      "url":"http://www.youtube.com/",
+                       backgroundColor: '#f44842'    
+                   }
+                ]
+                
+            });
+        });
+    </script>
+</body>
 </html>

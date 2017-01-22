@@ -1,7 +1,55 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+
 {{extend 'layout.html'}}
+<head>
+
+<!-- BLOCK: uniform campus head  -->
 
 
-<center><h1> OurHours </h1></center>
+<meta charset="UTF-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, user-scalable=yes, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0" name="viewport"/>
+<link href="//www.ucsc.edu/favicon.ico" rel="shortcut icon"/>
+<link href="//www.ucsc.edu/apple-touch-icon.png" rel="apple-touch-icon"/>
+
+<link href="//static.ucsc.edu/_responsive/css/ucsc.css" rel="stylesheet" type="text/css"/>
+<script src="//static.ucsc.edu/_responsive/lib/modernizr/modernizr.js" type="text/javascript"></script>
+<script src="//static.ucsc.edu/_responsive/lib/jquery/dist/jquery.js" type="text/javascript"></script>
+<script async="true" src="//static.ucsc.edu/_responsive/js/imagecache.js" type="text/javascript"></script>
+<script async="true" src="//static.ucsc.edu/_responsive/js/responsive.js" type="text/javascript"></script>
+<script async="true" src="//static.ucsc.edu/_responsive/js/main.js" type="text/javascript"></script>
+
+<!-- END BLOCK: included uniform campus head  -->
+
+<title>OurHours</title>
+
+
+
+<!--If a block was assigned to this region, it's content is not being printed because of this format "_library/global/formats/region-reset". -->
+        
+        <!--/global/blocks/features/billboards-->
+        
+
+
+<link href="//static.ucsc.edu/_responsive/lib/owlcarousel/owl-carousel/owl.carousel.css" rel="stylesheet" type="text/css"/>
+<link href="//static.ucsc.edu/_responsive/lib/owlcarousel/owl-carousel/owl.transitions.css" rel="stylesheet" type="text/css"/>
+<script src="//static.ucsc.edu/_responsive/lib/owlcarousel/owl-carousel/owl.carousel.min.js" type="text/javascript"></script>
+<script src="//static.ucsc.edu/_responsive/js/billboards.init.js" type="text/javascript"></script>
+
+            
+        <!--/global/blocks/features/fancybox-->
+        
+
+
+<link href="//static.ucsc.edu/_responsive/lib/fancybox/source/jquery.fancybox.css" rel="stylesheet" type="text/css"/>
+<script charset="utf-8" src="//static.ucsc.edu/_responsive/lib/fancybox/source/jquery.fancybox.pack.js" type="text/javascript"></script>
+<script charset="utf-8" src="//static.ucsc.edu/_responsive/js/fancybox.init.js" type="text/javascript"></script>
+
+</head>
+
+
+
+<center><h1><big> OurHours </big></h1></center>
 <style>
     .boxed {
         border: 1px solid black;
@@ -13,11 +61,8 @@
 <a href = "{{=URL('create')}}"><button>
     Create Group
     </button>
+    </a>
 
-<a href = "{{=URL('join')}}"><button>
-    Join Group
-    </button>
-</a>
 <br>
 {{if len(groups):}}
 <table class = "table" id = "posts"><input type="hidden" id="id" name="id" value="" />
@@ -28,9 +73,10 @@
             {{else:}}
                 <td><img width="40px" src="http://www.drodd.com/images15/question-mark12.png" /></td>
             {{pass}}
-            <td><a href = "{{=URL('event_page', args=groups.id)}}">
+            <td><a href = "{{=URL('join')}}">
                 <br>&nbsp;&nbsp;&nbsp;&nbsp;{{=groups.group_name}}
             </a></td>
+
             <td> <br>&nbsp;&nbsp;&nbsp;&nbsp;{{=groups.group_description}} </td>
             <br>
         </tr>
